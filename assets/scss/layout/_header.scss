@@ -1,0 +1,49 @@
+.site-header {
+    height: 100px;
+    width: 100%;
+    @include flex-justify;
+    background-color: #1E2837;
+    font-family: d-din-pro;
+    text-transform: uppercase;
+
+    .site-header-inner {
+        width: 1000px;
+        @include flex-justify;
+
+        nav {
+            display: flex;
+            align-items: center;
+
+            .menu {
+                display: flex;
+                margin: 0 20px;
+
+                .menu-item {
+                    padding: 20px;
+
+                    a {
+                        @include reset-anchor(#FFF);
+                        
+                        &::after {
+                            display: block;
+                            content: "";
+                            border-bottom: 2px solid #872783;
+                            border-radius: 50px;
+                            margin-top: 1px;
+                            width: 0;
+                            transition: .2s ease-in-out;
+                        }
+
+                        &:hover:after {
+                            width: 100%;
+						}
+                    }
+
+                    &.current_page_item a::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

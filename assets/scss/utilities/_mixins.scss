@@ -1,0 +1,18 @@
+@mixin flex-justify($position:center) {
+    display: flex;
+    justify-content: $position;
+}
+
+@mixin flex-align($position:center) {
+    display: flex;
+    align-items: $position;
+}
+
+@mixin margin-center {
+    margin: 0 auto;
+}
+
+@mixin reset-anchor($color:#000) {
+    text-decoration: none;
+    color: $color;
+}

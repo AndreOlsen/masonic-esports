@@ -1,0 +1,19 @@
+.site-footer {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #872783;
+    @include flex-justify(space-around);
+    align-items: center;
+
+        .menu {
+            .menu-item {
+                padding: 6px;
+
+                a {
+                    @include reset-anchor();
+                }
+        }
+    }
+}
