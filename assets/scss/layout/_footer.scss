@@ -1,19 +1,27 @@
 .site-footer {
-    height: 200px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background-color: #872783;
-    @include flex-justify(space-around);
-    align-items: center;
+    color: #fff;
+    background-color: #0C1320;
+
+    .footer-menus {
+        height: 200px;
+        @include flex-justify(space-around);
+        align-items: center;
+        border-bottom: 2px solid #57009B;
 
         .menu {
             .menu-item {
                 padding: 6px;
 
                 a {
-                    @include reset-anchor();
+                    @include reset-anchor(#fff);
                 }
+            }
         }
+    }
+
+    .copyrights {
+        @include margin-center;
+        padding: 20px;
+        text-align: center;
     }
 }
