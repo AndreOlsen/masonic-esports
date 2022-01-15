@@ -1,0 +1,8 @@
+body {
+    background-color: #0E1626;
+}
+
+.main-content {
+    width: $site-width;
+    @include margin-center;
+}

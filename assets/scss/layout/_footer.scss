@@ -1,12 +1,15 @@
 .site-footer {
+    width: 100%;
     color: #fff;
     background-color: #0C1320;
 
     .footer-menus {
+        width: $site-width;
         height: 200px;
         @include flex-justify(space-around);
+        @include margin-center;
         align-items: center;
-        border-bottom: 2px solid #57009B;
+        
 
         .menu {
             .menu-item {
@@ -23,5 +26,6 @@
         @include margin-center;
         padding: 20px;
         text-align: center;
+        border-top: 2px solid #57009B;
     }
 }

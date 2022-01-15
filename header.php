@@ -56,3 +56,5 @@
 				?>
 			</div>
 		</header><!-- .site-header -->
+
+		<main class="main-content">

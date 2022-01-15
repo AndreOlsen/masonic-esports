@@ -3,11 +3,10 @@
     width: 100%;
     @include flex-justify;
     background-color: #1E2837;
-    font-family: d-din-pro;
     text-transform: uppercase;
 
     .site-header-inner {
-        width: 1000px;
+        width: $site-width;
         @include flex-justify;
 
         nav {

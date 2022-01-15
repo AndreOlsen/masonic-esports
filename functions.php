@@ -178,6 +178,8 @@
                 'id'            => 'socials_widget_area',
                 'name'          => esc_html__( 'Socials', 'masonic-esports' ),
                 'description'   => esc_html__( 'Area for social icons', 'masonic-esports' ),
+                'before_widget' => '',
+                'after_widget'  => ''
             )
         );
     }
