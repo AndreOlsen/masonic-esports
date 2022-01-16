@@ -17,6 +17,12 @@
 
                 a {
                     @include reset-anchor(#fff);
+                    filter: brightness(50%);
+                    transition: .2s ease-in-out;
+
+                    &:hover {
+                        filter: brightness(100%)
+                    }
                 }
             }
         }

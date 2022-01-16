@@ -14,7 +14,8 @@ Text Domain: masonic-esports
 @import 'utilities/mixins';
 
 @import 'layout/header';
-@import 'layout/main';
+@import 'layout/main-content';
+@import 'layout/news';
 @import 'layout/footer';
 
 @import 'modules/shape-divider';
