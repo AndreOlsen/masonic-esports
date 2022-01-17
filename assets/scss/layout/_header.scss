@@ -4,13 +4,15 @@
     @include flex-justify;
     align-items: center;
     text-transform: uppercase;
-    position: absolute;
+    position: fixed;
     left: 0;
     z-index: 999;
+    transition: .2s ease-in-out;
 
-    .site-header-inner {
-        width: $site-width;
-        @include flex-justify;
+    .site-header__inner {
+        width: 100%;
+        @include flex-justify(space-between);
+        margin: 0 50px;
 
         nav {
             @include flex-align;
@@ -50,6 +52,32 @@
         .header-logo {
             a {
                 display: block;
+
+                img {
+                    width: 100%;
+                    transition: .2s ease-in-out;
+                }
+            }
+        }
+    }
+
+    &--scrolled {
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #E5E5E5;
+        height: 70px;
+
+        .site-header__inner {
+
+            .menu-item {
+                a {
+                    color: #000 !important;
+                }
+            }
+
+            .header-logo {
+                img {
+                    height: 55px;
+                }
             }
         }
     }

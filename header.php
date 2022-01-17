@@ -30,7 +30,7 @@
 		<?php wp_body_open(); ?>
 
 		<header class="site-header">
-			<div class="site-header-inner">
+			<div class="site-header__inner">
 				<?php
 					wp_nav_menu(
 						array(

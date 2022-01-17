@@ -4,7 +4,8 @@
     background-color: #0C1320;
 
     .footer-menus {
-        width: $site-width;
+        width: 100%;
+        margin: 0 50px;
         height: 200px;
         @include flex-justify(space-around);
         @include margin-center;
