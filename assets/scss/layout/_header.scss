@@ -11,11 +11,20 @@
 
     .site-header__inner {
         width: 100%;
-        @include flex-justify(space-between);
         margin: 0 50px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
 
-        nav {
+        .main-menu {
             @include flex-align;
+
+            &__left {
+                justify-self: start;
+            }
+
+            &__right {
+                justify-self: end;
+            }
 
             .menu {
                 @include flex-align;
@@ -50,6 +59,8 @@
         }
 
         .header-logo {
+            justify-self: center;
+
             a {
                 display: block;
 

@@ -36,7 +36,7 @@
 						array(
 							'theme_location'  => 'main-menu-left',
 							'container' 	  => 'nav',
-							'container_class' => 'menu-left',
+							'container_class' => 'main-menu main-menu__left',
 						)
 					);
 				?>
@@ -50,7 +50,7 @@
 						array(
 							'theme_location'  => 'main-menu-right',
 							'container' 	  => 'nav',
-							'container_class' => 'menu-right',
+							'container_class' => 'main-menu main-menu__right',
 						)
 					);
 				?>
