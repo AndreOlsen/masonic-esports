@@ -1,4 +1,13 @@
+
+
 .shape-divider {
-    display: block;
-    width:100%;
+    aspect-ratio: 960/200;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &--waves {
+        background-image: url(assets/svg/waves.svg);
+    }
 }

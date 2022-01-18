@@ -17,6 +17,10 @@
     margin: 0 auto;
 }
 
+@mixin margin-site-spacing {
+    margin: 0 2vw;
+}
+
 @mixin reset-anchor($color:#000) {
     text-decoration: none;
     color: $color;

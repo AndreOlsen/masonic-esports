@@ -3,9 +3,9 @@ body {
 }
 
 .wp-block-group {
-    margin: 0 50px;
+    @include margin-site-spacing;
+}
 
-    h2 {
-        margin-left: 30px;
-    }
+.wp-block-columns {
+    @include margin-site-spacing;
 }

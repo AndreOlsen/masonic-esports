@@ -43,7 +43,7 @@
 
 				<div class="header-logo">
                     <?php has_custom_logo() ? the_custom_logo() : ''; ?>
-                </div><!-- .header-logo -->
+                </div>
 
 				<?php 
 					wp_nav_menu(
@@ -55,6 +55,6 @@
 					);
 				?>
 			</div>
-		</header><!-- .site-header -->
+		</header>
 
 		<main class="main-content">
