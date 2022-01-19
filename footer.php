@@ -4,12 +4,11 @@
  *
  * @package Masonic
  */
-//$footer_divider_url = get_stylesheet_directory_uri() . '/assets/images/waves_bottom.svg';
 ?>			
 
 		</main>
 		
-		<div class="shape-divider shape-divider--waves"></div>
+		<div class="shape-divider shape-divider--masonic-waves"></div>
 			
 		<footer class="site-footer">
 				
