@@ -12,11 +12,12 @@
  */
 
 get_header();
-?>
 
-<main class="site-content" role="main">
+if(have_posts()) {
+    while(have_posts()) {
+        the_post();
+        the_content();
+    }
+}
 
-</main><!-- .site-content -->
-
-<?php
 get_footer();
