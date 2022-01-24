@@ -1,0 +1,13 @@
+.apbSliderPosts {
+    .apbPost {
+        .apbPostText {
+            justify-content: flex-end;
+
+            .apbPostTitle {
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
