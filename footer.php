@@ -13,9 +13,9 @@
 		<footer class="site-footer">
 				
 			<nav class="footer-menus">
-			<div class="header-logo">
-                    <?php has_custom_logo() ? the_custom_logo() : ''; ?>
-                </div>
+				<div class="header-logo">
+					<?php has_custom_logo() ? the_custom_logo() : ''; ?>
+				</div>
 
 				<?php
 					wp_nav_menu(
@@ -34,7 +34,6 @@
 						)
 					);
 				?>
-
 					
 				<?php if ( is_active_sidebar('socials_widget_area')) : ?>
 					<div class="socials">

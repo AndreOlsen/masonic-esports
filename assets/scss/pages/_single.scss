@@ -1,0 +1,36 @@
+.post-single__spacer {
+    height: 150px;
+}
+
+.post-single {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    &__featured-image {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        width: 100%;
+        min-height: 700px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    &__content {
+        padding: 30px;
+
+        .post-single__tagline {
+            margin-bottom: 50px;
+
+            .post-single__title {
+                font-size: 1.5rem;
+            }
+
+            .post-single__date {
+                color: rgba(0, 0, 0, 0.7);
+            }
+        }
+    }
+}
