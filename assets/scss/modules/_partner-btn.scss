@@ -1,0 +1,9 @@
+.partner-btn {
+    a {
+        transition: .5s;
+
+        &:hover {
+            filter: grayscale(50%); 
+        }
+    }
+}
