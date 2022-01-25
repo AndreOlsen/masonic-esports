@@ -135,7 +135,7 @@
                 'show_ui'       => true,
                 'show_tagcloud' => false,
                 'hierarchical'  => true
-            ),
+            )
         );
 
         // Management.
