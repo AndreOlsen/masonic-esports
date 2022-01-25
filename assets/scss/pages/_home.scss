@@ -6,6 +6,8 @@
 
     &__post {
         box-sizing: border-box;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
 
         .post {
             @include reset-anchor(#FFF);
@@ -14,7 +16,7 @@
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: 50%;
-                width: 600px;
+                width: 100%;
                 min-height: 350px;
                 border-radius: 5px;
                 display: flex;
@@ -30,6 +32,7 @@
                     @include flex-direction(column);
                     justify-content: flex-end;
                     padding: 0 0 20px 20px;
+                    border-radius: 5px;
 
                     .post__title {
                         font-size: 1.8rem;
@@ -47,7 +50,6 @@
             width: 100%;
 
             .post__image {
-                width: 100%;
                 min-height: 600px;
 
                 .post__overlay {
@@ -64,10 +66,10 @@
 
     .posts-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        grid-auto-rows: minmax(100px, auto);
-        @include margin-site-spacing;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        justify-items: center;
+        width: 85%;
         margin-top: 100px;
     }
 }

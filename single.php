@@ -13,8 +13,10 @@ $banner_url = has_post_thumbnail(get_the_id()) ? get_the_post_thumbnail_url(get_
     <div class="post-single__spacer"></div>
 
     <article class="post-single">
-        <figure class="post-single__featured-image" style="background-image:url(<?php echo $banner_url ?>); "></figure>
-
+        <?php if($banner_url) : ?>
+            <figure class="post-single__featured-image" style="background-image:url(<?php echo $banner_url ?>); "></figure>
+        <?php endif; ?>
+        
         <?php
             if(have_posts()) : while(have_posts()) : the_post();
                 get_template_part('template-parts/post/content-single');
