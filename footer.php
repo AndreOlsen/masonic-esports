@@ -13,7 +13,7 @@
 		<footer class="site-footer">
 				
 			<nav class="footer-menus">
-				<div class="header-logo">
+				<div class="custom-logo-container">
 					<?php has_custom_logo() ? the_custom_logo() : ''; ?>
 				</div>
 
@@ -37,7 +37,9 @@
 					
 				<?php if ( is_active_sidebar('socials_widget_area')) : ?>
 					<div class="socials">
-						<?php dynamic_sidebar('socials_widget_area'); ?>
+						<div class="socials__inner">
+							<?php dynamic_sidebar('socials_widget_area'); ?>
+						</div>
 					</div>
 				<?php endif; ?>
 			</nav>
