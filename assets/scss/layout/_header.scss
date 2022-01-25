@@ -11,7 +11,7 @@
 
     .site-header__inner {
         width: 100%;
-        margin: 0 50px;
+        margin: 0 1vw;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
 
@@ -58,13 +58,14 @@
             }
         }
 
-        .header-logo {
+        .custom-logo-container {
             justify-self: center;
+            align-self: center;
 
-            a {
+            .custom-logo-link {
                 display: block;
 
-                img {
+                .custom-logo {
                     width: 100%;
                     transition: .2s ease-in-out;
                 }
@@ -85,8 +86,8 @@
                 }
             }
 
-            .header-logo {
-                img {
+            .custom-logo-container {
+                .custom-logo {
                     height: 55px;
                 }
             }

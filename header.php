@@ -41,7 +41,7 @@
 					);
 				?>
 
-				<div class="header-logo">
+				<div class="custom-logo-container">
                     <?php has_custom_logo() ? the_custom_logo() : ''; ?>
                 </div>
 
