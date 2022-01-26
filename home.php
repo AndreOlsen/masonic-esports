@@ -7,8 +7,6 @@
  */
 
 get_header(); 
-
-$categories = get_categories();
 ?>
 
     <section class="posts-container">

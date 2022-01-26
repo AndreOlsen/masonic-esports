@@ -97,9 +97,8 @@
                 'add_new_item'  => __('Add New Partner', 'masonic-esports'),
             ),
             'public'              => true,
-            'has_archive'         => true,
+            'publicly_queryable'  => true,
             'menu_icon'           => 'dashicons-businessman',
-            'publicly_queryable'  => false,
         );
 
         register_post_type('partners', $args);
@@ -114,9 +113,8 @@
                 'add_new_item'  => __('Add New Player', 'masonic-esports'),
             ),
             'public'              => true,
-            'has_archive'         => true,
+            'publicly_queryable'  => true,
             'menu_icon'           => 'dashicons-groups',
-            'publicly_queryable'  => false,
         );
 
         register_post_type('players', $args);
