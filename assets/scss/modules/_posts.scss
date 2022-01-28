@@ -1,0 +1,58 @@
+.post {
+    box-sizing: border-box;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+
+    &__link {
+        @include reset-anchor(#FFF);
+
+        .post__image {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            width: 100%;
+            min-height: 350px;
+            border-radius: 5px;
+            display: flex;
+            transition: transform .2s;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            .post__overlay {
+                background-color: #000000b3;
+                width: 100%;
+                @include flex-direction(column);
+                justify-content: flex-end;
+                padding: 0 0 20px 20px;
+                border-radius: 5px;
+
+                .post__title {
+                    font-size: 1.8rem;
+                    padding-bottom: 10px;
+                }
+    
+                .post__date {
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
+
+    &--hero {
+        width: 100%;
+
+        .post__image {
+            min-height: 600px;
+
+            .post__overlay {
+                padding: 0 0 40px 40px;
+
+                .post__title {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
