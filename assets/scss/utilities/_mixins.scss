@@ -1,22 +1,3 @@
-@mixin flex-justify($position:center) {
-    display: flex;
-    justify-content: $position;
-}
-
-@mixin flex-align($position:center) {
-    display: flex;
-    align-items: $position;
-}
-
-@mixin flex-direction($direction:row) {
-    display: flex;
-    flex-direction: $direction;
-}
-
-@mixin margin-center {
-    margin: 0 auto;
-}
-
 @mixin margin-site-spacing {
     margin: 0 2vw;
 }
