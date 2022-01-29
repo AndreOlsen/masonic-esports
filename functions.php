@@ -71,24 +71,14 @@
 
     add_action('wp_enqueue_scripts', 'masonic_enqueue_scripts');
 
-    /**
-     * Get template in output buffer.
-     * 
-     * @param  string $template_name  Template name.
-     * @param  string $part_name      Part name.
-     * @param  array  $args           Array of variable being passed to the template.
-     * @return string                 Returns the template html.
-     */
-    function load_template_part($template_name, $part_name = NULL, $args = array()) {
-        ob_start();
-        get_template_part($template_name, $part_name, $args);
-        $html = ob_get_contents();
-        ob_end_clean();
-
-        return $html;
-    }
+    include 'inc/masonic-patterns.php';
 
     add_filter( 'oembed_response_data', 'disable_embeds_filter_oembed_response_data_' );
+
+    // Add featured image support to custom post types.
+    add_post_type_support( 'partners', 'thumbnail' );
+    add_post_type_support( 'players', 'thumbnail' );
+    add_post_type_support( 'management', 'thumbnail' );
 
     /**
      * Register custom post types.
@@ -107,6 +97,7 @@
             'public'              => true,
             'publicly_queryable'  => true,
             'menu_icon'           => 'dashicons-businessman',
+            'show_in_rest'        => true
         );
 
         register_post_type('partners', $args);
@@ -123,6 +114,7 @@
             'public'              => true,
             'publicly_queryable'  => true,
             'menu_icon'           => 'dashicons-groups',
+            'show_in_rest'        => true
         );
 
         register_post_type('players', $args);
@@ -180,6 +172,9 @@
 
     add_action('init', 'register_menus');
 
+    /**
+     * Register widget areas.
+     */
     function register_widget_area() {
         register_sidebar(
             array(

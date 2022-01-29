@@ -1,5 +1,7 @@
 .wp-block-coblocks-social {
+    filter: brightness(100%);
+
     .wp-block-button__link:hover {
-        filter: brightness(100);
+        filter: brightness(50%);
     }
 }

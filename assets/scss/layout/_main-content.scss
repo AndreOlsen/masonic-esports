@@ -10,3 +10,8 @@ body {
 .wp-block-columns {
     @include margin-site-spacing;
 }
+
+.reading-width {
+    max-width: $reading-width;
+    margin: 0 auto;
+} 

@@ -7,6 +7,10 @@ body {
   font-family: d-din-pro;
 }
 
+p {
+  color: #fff;
+}
+
 .wp-block-post-title {
   color: #fff;
 }

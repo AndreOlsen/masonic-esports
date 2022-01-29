@@ -1,0 +1,12 @@
+.partners__tagline {
+    box-shadow: $box-shadow;    
+    
+    .wp-block-coblocks-hero__content {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            margin-right: 50px;
+        } 
+    }
+}
