@@ -1,8 +1,5 @@
-@font-face {
-    font-family: d-din-pro;
-    src: url(assets/fonts/D-DIN-PRO-Regular.woff);
-}
+@include font-face('d-din-pro', 'assets/fonts/D-DIN-PRO-Regular.woff');
 
 body {
-    font-family: d-din-pro;
+    font-family: "d-din-pro";
 }

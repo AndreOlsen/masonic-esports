@@ -38,6 +38,7 @@
                     a {
                         @include reset-anchor(#FFF);
                         display: block;
+                        font-weight: bold;
                         
                         &::after {
                             display: block;

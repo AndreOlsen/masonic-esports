@@ -37,9 +37,17 @@
             // Add support for experimental cover block spacing.
             add_theme_support('custom-spacing');
 
+            // Add support for Block Styles.
             add_theme_support('wp-block-styles');
 
-            add_theme_support('dark-editor-style');
+            // Add support for editor styles.
+            add_theme_support('editor-styles');
+
+            // Enqueue editor styles.
+            add_editor_style('assets/css/style-editor.css');
+
+            // Custom background color.
+		    add_theme_support('custom-background', array('default-color' => '#0E1626'));
         }
     }
 

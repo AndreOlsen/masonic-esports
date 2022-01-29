@@ -6,3 +6,10 @@
     text-decoration: none;
     color: $color;
 }
+
+@mixin font-face($name, $path) {
+	@font-face {
+		font-family: quote($name);
+		src: url($path);
+	}
+}

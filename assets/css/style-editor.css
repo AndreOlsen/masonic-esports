@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "d-din-pro";
+  src: url("../fonts/D-DIN-PRO-Regular.woff");
+}
+body {
+  background: #0E1626;
+  font-family: d-din-pro;
+}
+
+.wp-block-post-title {
+  color: #fff;
+}

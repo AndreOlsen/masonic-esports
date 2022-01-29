@@ -4,7 +4,7 @@
 
 .post-single {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -14,7 +14,7 @@
         background-repeat: no-repeat;
         background-position: 50%;
         width: 100%;
-        min-height: 700px;
+        min-height: 50vh;
         border-radius: 5px 5px 0 0;
     }
 
