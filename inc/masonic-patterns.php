@@ -47,7 +47,7 @@ function register_masonic_block_patterns() {
             <!-- /wp:spacer --></article>
             <!-- /wp:group -->',
             'categories'  => array('masonic'),
-            'keywords'    => array('masonic')
+            'keywords'    => array('masonic', 'partner', 'partners', 'content')
         )
     );
 
@@ -57,19 +57,25 @@ function register_masonic_block_patterns() {
         array(
             'title'       => __('Tagline', 'masonic_esports'),
             'description' => _x('CTA tagline', 'Block pattern description', 'masonic_esports'),
-            'content'     => '<!-- wp:coblocks/hero {"layout":"center-center","paddingSize":"advanced","paddingSyncUnits":true,"backgroundImg":"' . $upload_dir['baseurl'] . '/2022/01/teambuilding.png","focalPoint":{"x":"0.50","y":"0.30"},"height":200,"heightMobile":200,"contentAlign":"center","maxWidth":1000,"saveCoBlocksMeta":false,"className":"partners__tagline","coblocks":{"id":"018154729821"}} -->
-            <div class="wp-block-coblocks-hero alignfull coblocks-hero-018154729821 partners__tagline"><div class="wp-block-coblocks-hero__inner bg-cover has-background-image bg-no-repeat bg-center-center hero-center-center-align has-padding has-center-content" style="background-image:url(' . $upload_dir['baseurl'] . '/2022/01/teambuilding.png);background-position:50% 30%;min-height:200px"><div class="wp-block-coblocks-hero__content-wrapper"><div class="wp-block-coblocks-hero__content" style="max-width:1000px"><!-- wp:heading {"textAlign":"left","placeholder":"Add hero heading…","textColor":"white","fontSize":"huge"} -->
-            <h2 class="has-text-align-left has-white-color has-text-color has-huge-font-size" id="we-love-our-partners">WE LOVE OUR PARTNERS</h2>
-            <!-- /wp:heading -->
+            'content'     => '<!-- wp:cover {"url":"'.$upload_dir['baseurl'].'/2022/01/teambuilding.png","id":199,"dimRatio":0,"focalPoint":{"x":"0.50","y":0.3},"minHeight":150,"align":"full","className":"partners__tagline"} -->
+            <div class="wp-block-cover alignfull partners__tagline" style="min-height:150px"><span aria-hidden="true" class="has-background-dim-0 wp-block-cover__gradient-background has-background-dim"></span><img class="wp-block-cover__image-background wp-image-199" alt="" src="'.$upload_dir['baseurl'].'/2022/01/teambuilding.png" style="object-position:50% 30%" data-object-fit="cover" data-object-position="50% 30%"/><div class="wp-block-cover__inner-container"><!-- wp:columns {"align":"full","animation":"slideInLeft"} -->
+            <div class="wp-block-columns alignfull coblocks-animate" data-coblocks-animation="slideInLeft"><!-- wp:column {"verticalAlignment":"center","width":""} -->
+            <div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"textAlign":"right","textColor":"white","fontSize":"large"} -->
+            <h2 class="has-text-align-right has-white-color has-text-color has-large-font-size" id="we-love-our-partners-2">WE LOVE OUR PARTNERS</h2>
+            <!-- /wp:heading --></div>
+            <!-- /wp:column -->
             
-            <!-- wp:buttons {"align":"center","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal","flexWrap":"nowrap"}} -->
-            <div class="wp-block-buttons"><!-- wp:button {"placeholder":"Primary button…","textColor":"white","style":{"color":{"gradient":"linear-gradient(200deg,rgb(135,39,131) 0%,rgb(46,49,134) 100%)"}},"className":"is-style-fill partner-btn"} -->
-            <div class="wp-block-button is-style-fill partner-btn"><a class="wp-block-button__link has-white-color has-text-color has-background" href="mailto:contact@masonic.gg" style="background:linear-gradient(200deg,rgb(135,39,131) 0%,rgb(46,49,134) 100%)"><strong>Get in Touch</strong> [icon name="envelope" prefix="far"]</a></div>
+            <!-- wp:column {"verticalAlignment":"center","width":""} -->
+            <div class="wp-block-column is-vertically-aligned-center"><!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap","orientation":"horizontal"}} -->
+            <div class="wp-block-buttons"><!-- wp:button {"style":{"color":{"gradient":"linear-gradient(200deg,rgb(135,39,131) 0%,rgb(46,49,134) 100%)"}},"className":"is-style-3d partner-btn"} -->
+            <div class="wp-block-button is-style-3d partner-btn"><a class="wp-block-button__link has-background" href="mailto:contact@masonic.gg" style="background:linear-gradient(200deg,rgb(135,39,131) 0%,rgb(46,49,134) 100%)"><strong>Get In Touch</strong> [icon name="envelope" prefix="far"]</a></div>
             <!-- /wp:button --></div>
-            <!-- /wp:buttons --></div></div></div></div>
-            <!-- /wp:coblocks/hero -->',
+            <!-- /wp:buttons --></div>
+            <!-- /wp:column --></div>
+            <!-- /wp:columns --></div></div>
+            <!-- /wp:cover -->',
             'categories'  => array('masonic'),
-            'keywords'    => array('masonic')
+            'keywords'    => array('masonic', 'tagline', 'cta', 'partner', 'partners')
         )
     );
 
@@ -87,7 +93,7 @@ function register_masonic_block_patterns() {
             <!-- wp:ap-block/posts {"align":"full","cId":"cab4635d-e3ff-43af-ba0e-9392217d7f4b","layout":"slider","subLayout":"overlay-content","columns":{"desktop":4,"tablet":2,"mobile":1},"postsPerPage":8,"contentBG":{"color":"#000000b3","styles":"background-color: #000000b3;","type":"solid","gradient":"linear-gradient(135deg, #4527a4, #8344c5)","image":{},"position":"center center","attachment":"initial","repeat":"no-repeat","size":"cover","overlayColor":"#000000b3"},"contentPadding":{"vertical":"20px","horizontal":"25px","side":4,"top":"0px","right":"0px","bottom":"0px","left":"0px","styles":"0px 0px 0px 0px"},"border":{"radius":"5px","width":"0px","style":"solid","color":"#0000","side":"all","styles":"border-radius: 5px;"},"sliderIsLoop":false,"sliderIsAutoplay":false,"sliderPageColor":"rgba(255, 255, 255, 1)","sliderPageBorder":{"radius":"50%","width":"0px","style":"solid","color":"#0000","side":"all","styles":"border-radius: 50%;"},"sliderPrevNextColor":"rgba(135, 39, 131, 1)","isFImgLink":true,"titleTypo":{"fontFamily":"Roboto","fontSize":25,"googleFontLink":"https://fonts.googleapis.com/css2?family=Roboto\u0026display=swap","styles":"font-family: "Roboto", sans-serif; font-size: 25px; line-height: 135%;"},"titleColor":"rgba(255, 255, 255, 1)","titleMargin":{"bottom":"15px","side":4,"vertical":"0px","horizontal":"0px","top":"0px","right":"0px","left":"20px","styles":"0px 0px 15px 20px"},"isMetaAuthor":false,"metaTypo":{"fontSize":13,"textTransform":"uppercase","styles":"font-size: 13px; text-transform: uppercase; line-height: 135%;","googleFontLink":"https://fonts.googleapis.com/css2?family=Open+Sans\u0026display=swap"},"metaTextColor":"rgba(255, 255, 255, 0.7)","metaLinkColor":"rgba(0, 0, 0, 1)","metaIconColor":"rgba(255, 255, 255, 0.9)","metaColorsOnImage":{"color":"#fff","bg":"#4527a4","bgType":"solid","gradient":"linear-gradient(135deg, #4527a4, #8344c5)","styles":"color: #fff; background: #4527a4;"},"metaMargin":{"bottom":"15px","side":4,"vertical":"0px","horizontal":"0px","top":"0px","right":"0px","left":"20px","styles":"0px 0px 15px 20px"},"isExcerpt":false,"excerptColor":"#fff","isReadMore":false} /--></section>
             <!-- /wp:group -->',
             'categories'  => array('masonic'),
-            'keywords'    => array('masonic')
+            'keywords'    => array('masonic', 'latest', 'posts', 'news')
         )
     );
 
@@ -145,7 +151,7 @@ function register_masonic_block_patterns() {
             <!-- /wp:column --></div>
             <!-- /wp:columns -->',
             'categories'  => array('masonic'),
-            'keywords'    => array('masonic')
+            'keywords'    => array('masonic', 'partner', 'partners', 'showcase')
         )
     );
 
@@ -167,7 +173,7 @@ function register_masonic_block_patterns() {
             <!-- wp:coblocks/social-profiles {"align":"full","className":"is-style-mask","hasColors":false,"opensInNewTab":true,"size":"lrg","iconSize":50,"textAlign":"center","backgroundColor":"white","facebook":"facebook.com","twitter":"twitter.com","instagram":"instagram.com","linkedin":"linkedin.com","youtube":"youtube.com"} /--></div>
             <!-- /wp:group -->',
             'categories'  => array('masonic'),
-            'keywords'    => array('masonic')
+            'keywords'    => array('masonic', 'socials', 'social')
         )
     );
 }
