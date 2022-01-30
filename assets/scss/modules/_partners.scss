@@ -1,0 +1,27 @@
+.partners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    &__partner {
+        background-color: #0C1322;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+        padding: 20px;
+        transition: transform .2s;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+        
+        .partner__link {
+            .partner__image {
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 50%;
+                width: 100%;
+                min-height: 150px;
+            }
+        }
+    }
+}
