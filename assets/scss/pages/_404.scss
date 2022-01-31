@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #FFF;
+    color: $ghost-white;
 
     &__title {
         font-size: 8rem;
@@ -19,7 +19,7 @@
     &__spacer {
         width: 10%;
         height: 1px;
-        background-color: #872783;
+        background-color: $masonic-pink;
         margin: 20px 0;
     }
 

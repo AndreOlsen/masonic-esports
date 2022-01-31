@@ -1,17 +1,16 @@
 @import 'utilities/variables';
 @import 'utilities/mixins';
-
-@include font-face('d-din-pro', '../fonts/D-DIN-PRO-Regular.woff');
+@import 'base/typography';
 
 body {
-    background: $site-background;
+    background: $masonic-blue;
     font-family: d-din-pro;
 }
 
 p {
-    color: #fff;
+    color: $white;
 }
 
 .wp-block-post-title {
-    color: #fff;
-}
+    color: $white;
+} 

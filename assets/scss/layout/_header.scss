@@ -36,14 +36,14 @@
                     padding: 20px;
 
                     a {
-                        @include reset-anchor(#FFF);
+                        @include reset-anchor($ghost-white);
                         display: block;
                         font-weight: bold;
                         
                         &::after {
                             display: block;
                             content: "";
-                            border-bottom: 2px solid #872783;
+                            border-bottom: 2px solid $masonic-pink;
                             border-radius: 50px;
                             margin-top: 1px;
                             width: 0;
@@ -78,8 +78,7 @@
     }
 
     &--scrolled {
-        background-color: #FFFFFF;
-        border-bottom: 1px solid #E5E5E5;
+        background-color: $ghost-white;
         height: 70px;
 
         .site-header__inner {
