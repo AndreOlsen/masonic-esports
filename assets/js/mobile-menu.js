@@ -1,9 +1,10 @@
 jQuery(document).ready(function($) {
+    const $mobileMenu = $('.main-menu__mobile');
     $('#burger-menu').click(function () {
-        $('.main-menu__mobile').toggleClass('main-menu__mobile--open');
+        $mobileMenu.toggleClass('main-menu__mobile--open');
     });
 
-    $('.main-menu__mobile').click(function () {
+    $mobileMenu.click(function () {
         $(this).toggleClass('main-menu__mobile--open');
     });
 } );
