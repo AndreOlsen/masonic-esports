@@ -7,20 +7,14 @@
     z-index: 999;
     transition: height .2s ease-in-out;
     box-sizing: border-box;
+    padding: 0 2vw;
 
     &__inner {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         @include breakpoint(laptop) {
-            display: none;
-        }
-    }
-
-    &__mobile {
-        display: none;
-        @include breakpoint(laptop) {
-            display: flex;
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 

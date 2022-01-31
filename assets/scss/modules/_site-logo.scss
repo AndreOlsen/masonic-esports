@@ -1,6 +1,9 @@
 .custom-logo-container {
     justify-self: center;
     align-self: center;
+    @include breakpoint(laptop) {
+        justify-self: end;
+    }
 
     .custom-logo-link {
         display: block;

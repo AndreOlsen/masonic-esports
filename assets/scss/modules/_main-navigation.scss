@@ -4,23 +4,33 @@
 
     &__left {
         justify-self: start;
+        @include breakpoint(laptop) {
+            display: none;
+        }
     }
 
     &__right {
         justify-self: end;
+        @include breakpoint(laptop) {
+            display: none;
+        }
     }
 
     &__mobile {
+        @include breakpoint(desktop) {
+            display: none;
+        }
         position: absolute;
         transition: all .2s ease;
 
         &--open {
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             background-color: rgba(0, 0, 0, .5);
 
             .menu {
-                margin-left: 0 !important;
+                margin-left: -2vw !important;
+                overflow: scroll;
             }
         }
     }
@@ -31,10 +41,10 @@
         @include breakpoint(laptop) {
             flex-direction:column;
             align-items: flex-start;
+            margin-left: -100vw;
             width: 60vw;
             height: 100vh;
             background-color: $ghost-white;
-            margin-left: -60vw;
             transition: all .2s ease;
         }
 

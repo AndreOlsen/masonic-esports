@@ -31,6 +31,20 @@
 
 		<header class="site-header">
 			<div class="site-header__inner">
+				<i id="burger-menu" class="burger-menu fas fa-bars"></i>
+
+				<?php
+					if(has_nav_menu('mobile-menu')) {
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'mobile-menu',
+								'container' 	  =>  'nav',
+								'container_class' => 'main-menu main-menu__mobile'
+							)
+						);
+					}
+				?>
+
 				<?php
 					if(has_nav_menu('main-menu-left')) {
 						wp_nav_menu(
@@ -54,22 +68,6 @@
 								'theme_location'  => 'main-menu-right',
 								'container' 	  => 'nav',
 								'container_class' => 'main-menu main-menu__right',
-							)
-						);
-					}
-				?>
-			</div>
-
-			<div class="site-header__mobile">
-				<i id="burger-menu" class="burger-menu fas fa-bars"></i>
-
-				<?php
-					if(has_nav_menu('mobile-menu')) {
-						wp_nav_menu(
-							array(
-								'theme_location'  => 'mobile-menu',
-								'container' 	  =>  'nav',
-								'container_class' => 'main-menu main-menu__mobile'
 							)
 						);
 					}
