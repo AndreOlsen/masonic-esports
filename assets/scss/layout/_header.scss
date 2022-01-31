@@ -1,79 +1,26 @@
 .site-header {
     height: 100px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-transform: uppercase;
     position: fixed;
     left: 0;
     z-index: 999;
-    transition: .2s ease-in-out;
+    transition: height .2s ease-in-out;
+    box-sizing: border-box;
 
-    .site-header__inner {
+    &__inner {
         width: 100%;
-        margin: 0 1vw;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-
-        .main-menu {
-            display: flex;
-            align-items: center;
-
-            &__left {
-                justify-self: start;
-            }
-
-            &__right {
-                justify-self: end;
-            }
-
-            .menu {
-                display: flex;
-                align-items: center;
-
-                .menu-item {
-                    padding: 20px;
-
-                    a {
-                        @include reset-anchor($ghost-white);
-                        display: block;
-                        font-weight: bold;
-                        
-                        &::after {
-                            display: block;
-                            content: "";
-                            border-bottom: 2px solid $masonic-pink;
-                            border-radius: 50px;
-                            margin-top: 1px;
-                            width: 0;
-                            transition: .2s ease-in-out;
-                        }
-
-                        &:hover:after {
-                            width: 100%;
-						}
-                    }
-
-                    &.current_page_item a::after {
-                        width: 100%;
-                    }
-                }
-            }
+        @include breakpoint(laptop) {
+            display: none;
         }
+    }
 
-        .custom-logo-container {
-            justify-self: center;
-            align-self: center;
-
-            .custom-logo-link {
-                display: block;
-
-                .custom-logo {
-                    width: 100%;
-                    transition: .2s ease-in-out;
-                }
-            }
+    &__mobile {
+        display: none;
+        @include breakpoint(laptop) {
+            display: flex;
         }
     }
 
@@ -81,7 +28,10 @@
         background-color: $ghost-white;
         height: 70px;
 
-        .site-header__inner {
+        .site-header__inner, .site-header__mobile {
+            .burger-menu {
+                color: #000;
+            }
 
             .menu-item {
                 a {

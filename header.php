@@ -32,27 +32,47 @@
 		<header class="site-header">
 			<div class="site-header__inner">
 				<?php
-					wp_nav_menu(
-						array(
-							'theme_location'  => 'main-menu-left',
-							'container' 	  => 'nav',
-							'container_class' => 'main-menu main-menu__left',
-						)
-					);
+					if(has_nav_menu('main-menu-left')) {
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'main-menu-left',
+								'container' 	  => 'nav',
+								'container_class' => 'main-menu main-menu__left',
+							)
+						);
+					}
 				?>
 
 				<div class="custom-logo-container">
                     <?php has_custom_logo() ? the_custom_logo() : ''; ?>
                 </div>
 
-				<?php 
-					wp_nav_menu(
-						array(
-							'theme_location'  => 'main-menu-right',
-							'container' 	  => 'nav',
-							'container_class' => 'main-menu main-menu__right',
-						)
-					);
+				<?php
+					if(has_nav_menu('main-menu-right')) {
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'main-menu-right',
+								'container' 	  => 'nav',
+								'container_class' => 'main-menu main-menu__right',
+							)
+						);
+					}
+				?>
+			</div>
+
+			<div class="site-header__mobile">
+				<i id="burger-menu" class="burger-menu fas fa-bars"></i>
+
+				<?php
+					if(has_nav_menu('mobile-menu')) {
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'mobile-menu',
+								'container' 	  =>  'nav',
+								'container_class' => 'main-menu main-menu__mobile'
+							)
+						);
+					}
 				?>
 			</div>
 		</header>

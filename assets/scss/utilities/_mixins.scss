@@ -7,7 +7,31 @@
     color: $color;
 }
 
-@mixin font-d-din($font) {
+@mixin font-d-din($file) {
 	font-family: d-din-pro;
-	src: url('assets/fonts/#{$font}');
+	src: url('assets/fonts/#{$file}');
+}
+
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media (max-width: 70em) { 
+            @content; 
+        }
+    } @else if $point == laptop {
+        @media (max-width: 64em) {
+            @content; 
+        }
+    } @else if $point == tablet {
+        @media (max-width: 50em) { 
+            @content;
+        }
+    } @else if $point == phablet {
+        @media (max-width: 37.5em)  { 
+            @content; 
+        }
+    } @else if $point == mobileonly {
+        @media (min-width: 37.5em)  { 
+            @content; 
+        }
+    }
 }

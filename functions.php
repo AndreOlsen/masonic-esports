@@ -25,38 +25,35 @@
         
             // Enable thumbnail support for posts and pages.
             add_theme_support('post-thumbnails');
-
+            
+            // Add support for full and wide align images.
+            add_theme_support('align-wide');
+            
+            // Add support for responsive embeds.
+            add_theme_support('responsive-embeds');
+            
+            // Add support for custom line height controls.
+            add_theme_support('custom-line-height');
+            
+            // Add support for experimental link color control.
+            add_theme_support('experimental-link-color');
+            
+            // Add support for experimental cover block spacing.
+            add_theme_support('custom-spacing');
+            
             // Make theme translatable.
             load_theme_textdomain('masonic-esports');
 
-            // Add support for full and wide align images.
-            add_theme_support('align-wide');
-
-            // Add support for responsive embeds.
-            add_theme_support('responsive-embeds');
-
-            // Add support for custom line height controls.
-            add_theme_support('custom-line-height');
-
-            // Add support for experimental link color control.
-            add_theme_support('experimental-link-color');
-
-            // Add support for experimental cover block spacing.
-            add_theme_support('custom-spacing');
-
             // Add support for Block Styles.
             add_theme_support('wp-block-styles');
-
+            
             // Add support for editor styles.
             add_theme_support('editor-styles');
 
             // Enqueue editor styles.
             add_editor_style('assets/css/style-editor.css');
-
-            // Custom background color.
-		    add_theme_support('custom-background', array('default-color' => '#0E1626'));
-
-            // Block editor pre-defined color palette.
+            
+            // Pre-defined colors.
             $masonic_blue         = '#0E1626';
             $masonic_purple       = '#57009B';
             $masonic_pink         = '#872783';
@@ -64,6 +61,10 @@
             $ghost_white          = '#F8F8FF';
             $black                = '#000000';
 
+            // Custom background color.
+		    add_theme_support('custom-background', array('default-color' => $masonic_blue));
+            
+            // Block editor color palette.
             add_theme_support(
                 'editor-color-palette',
                 array(
@@ -100,6 +101,7 @@
                 )
             );
 
+            // Block editor gradient palette.
             add_theme_support(
                 'editor-gradient-presets',
                 array(
@@ -122,7 +124,7 @@
          * Enqueue theme styles.
          */
         function masonic_enqueue_styles() {
-            wp_enqueue_style('masonic-style', get_stylesheet_uri(), array(), '1.0.0', 'all');
+            wp_enqueue_style('masonic-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
         }
 
     endif;
@@ -135,7 +137,8 @@
          * Enqueue theme scripts.
          */
         function masonic_enqueue_scripts() {
-            wp_enqueue_script('header-scroll', get_stylesheet_directory_uri() . '/assets/js/header-scroll.js', array(), '1.0.0');
+            wp_enqueue_script('header-scroll', get_stylesheet_directory_uri() . '/assets/js/header-scroll.js', array(), wp_get_theme()->get('Version'));
+            wp_enqueue_script('mobile-menu', get_stylesheet_directory_uri() . '/assets/js/mobile-menu.js', array(), wp_get_theme()->get('Version'));
         }
 
     endif;
@@ -257,10 +260,11 @@
         function register_menus() {
             register_nav_menus(
                 array(
-                    'main-menu-left'    => __('Main Menu Left'),
-                    'main-menu-right'   => __('Main Menu Right'),
-                    'footer-menu-left'  => __('Footer Menu Left'),
-                    'footer-menu-right' => __('Footer Menu Right')
+                    'main-menu-left'    => __('Main Menu Left', 'masonic_esports'),
+                    'main-menu-right'   => __('Main Menu Right', 'masonic_esports'),
+                    'footer-menu-left'  => __('Footer Menu Left', 'masonic_esports'),
+                    'footer-menu-right' => __('Footer Menu Right', 'masonic_esports'),
+                    'mobile-menu'       => __('Mobile Menu', 'masonic_esports')
                 )
             );
         }

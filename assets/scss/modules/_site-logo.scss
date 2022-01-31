@@ -1,0 +1,13 @@
+.custom-logo-container {
+    justify-self: center;
+    align-self: center;
+
+    .custom-logo-link {
+        display: block;
+
+        .custom-logo {
+            width: 100%;
+            transition: .2s ease-in-out;
+        }
+    }
+}
