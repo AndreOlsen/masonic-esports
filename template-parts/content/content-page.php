@@ -28,9 +28,44 @@ if($post->post_name === 'partners') :
 
 <?php 
         endforeach;
-        wp_reset_postdata();
 
         echo '</section>';
     endif;
-endif; 
+    
+elseif($post->post_name === 'teams') :
+    /* $players = get_posts(
+        array(
+            'post_type'   => 'players',
+            'numberposts' => -1,
+            'post_status' => 'publish',
+            'fields'      => 'ids'
+        )
+    ); */
+    $categories = get_categories( array(
+        'orderby' => 'name',
+        'order'   => 'ASC',
+        'taxonomy' => 'teams',
+        'hide_empty' => false,
+    ) );
+
+    echo '<pre>';
+
+    if(!empty($categories)) :
+        echo '<section>';
+
+        foreach($categories as $category) :
+            var_dump($category);
+            //var_dump(get_the_category($player));
+?>
+
+
+
+
+
+<?php  
+        endforeach;
+
+        echo '<section>';
+    endif;
+endif;
 ?>
