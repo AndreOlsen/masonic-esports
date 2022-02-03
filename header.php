@@ -34,7 +34,7 @@
 				<i id="burger-menu" class="burger-menu fas fa-bars"></i>
 
 				<?php
-					if(has_nav_menu('mobile-menu')) {
+					if(has_nav_menu('mobile-menu')) :
 						wp_nav_menu(
 							array(
 								'theme_location'  => 'mobile-menu',
@@ -42,11 +42,9 @@
 								'container_class' => 'main-menu main-menu__mobile'
 							)
 						);
-					}
-				?>
+					endif;
 
-				<?php
-					if(has_nav_menu('main-menu-left')) {
+					if(has_nav_menu('main-menu-left')) :
 						wp_nav_menu(
 							array(
 								'theme_location'  => 'main-menu-left',
@@ -54,15 +52,15 @@
 								'container_class' => 'main-menu main-menu__left',
 							)
 						);
-					}
-				?>
+					endif;
 
-				<div class="custom-logo-container">
-                    <?php has_custom_logo() ? the_custom_logo() : ''; ?>
-                </div>
+					if(has_custom_logo()) :
+						echo '<div class="custom-logo-container">';
+                    		the_custom_logo(); 
+                		echo '</div>';
+					endif;
 
-				<?php
-					if(has_nav_menu('main-menu-right')) {
+					if(has_nav_menu('main-menu-right')) :
 						wp_nav_menu(
 							array(
 								'theme_location'  => 'main-menu-right',
@@ -70,7 +68,7 @@
 								'container_class' => 'main-menu main-menu__right',
 							)
 						);
-					}
+					endif;
 				?>
 			</div>
 		</header>

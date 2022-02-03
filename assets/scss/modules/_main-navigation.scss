@@ -17,11 +17,12 @@
     }
 
     &__mobile {
+        position: absolute;
+        transition: all .2s ease;
+        margin: -20px;
         @include breakpoint(desktop) {
             display: none;
         }
-        position: absolute;
-        transition: all .2s ease;
 
         &--open {
             height: 100vh;
@@ -74,7 +75,8 @@
                 }
             }
 
-            &.current_page_item a::after {
+            &.current_page_item a::after,
+            &.current_page_parent a::after {
                 width: 100%;
             }
         }

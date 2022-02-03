@@ -37,9 +37,7 @@
 					
 				<?php if ( is_active_sidebar('socials_widget_area')) : ?>
 					<div class="socials">
-						<div class="socials__inner">
-							<?php dynamic_sidebar('socials_widget_area'); ?>
-						</div>
+						<?php dynamic_sidebar('socials_widget_area'); ?>
 					</div>
 				<?php endif; ?>
 			</nav>

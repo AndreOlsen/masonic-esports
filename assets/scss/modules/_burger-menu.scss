@@ -3,7 +3,6 @@
     align-self: center;
     font-size: 2em;
     cursor: pointer;
-    padding: 20px;
     @include breakpoint(desktop) {
         display: none;
     }

@@ -1,11 +1,10 @@
 .site-header {
-    height: 100px;
     width: 100%;
     text-transform: uppercase;
     position: fixed;
     left: 0;
     z-index: 999;
-    transition: height .2s ease-in-out;
+    transition: all .2s ease;
     box-sizing: border-box;
     padding: 0 2vw;
 
@@ -13,17 +12,33 @@
         width: 100%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        box-sizing: border-box;
+        padding: 20px;
+        transition: all .2s ease;
         @include breakpoint(laptop) {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        .custom-logo-container {
+            @include breakpoint(laptop) {
+                justify-self: end;
+            }
         }
     }
 
     &--scrolled {
         background-color: $ghost-white;
         height: 70px;
+        @include breakpoint(laptop) {
+            height: auto;
+        }
 
-        .site-header__inner, .site-header__mobile {
-            .burger-menu {
+        .site-header__inner {
+            @include breakpoint(desktop) {
+                padding: 0;
+            }
+
+            #burger-menu {
                 color: #000;
             }
 
@@ -35,7 +50,7 @@
 
             .custom-logo-container {
                 .custom-logo {
-                    height: 55px;
+                    height: 50px;
                 }
             }
         }

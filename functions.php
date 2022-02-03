@@ -10,17 +10,22 @@
     if(!function_exists('masonic_theme_setup')) :
         /**
          * Add WordPress functions support to theme.
+         * 
+         * @since 1.0.0
          */
         function masonic_theme_setup() {
+            // Make theme translatable.
+            load_theme_textdomain('masonic-esports');
+
             // Let WordPress manage site title.
             add_theme_support('title-tag');
 
             // Add custom logo support.
             add_theme_support('custom-logo', array(
-                'height'      => 120,
-                'width'       => 90,
+                'height'      => 180,
+                'width'       => 180,
                 'flex-height' => true,
-                'flex-width'  => true, 
+                'flex-width'  => true
             ));
         
             // Enable thumbnail support for posts and pages.
@@ -40,9 +45,6 @@
             
             // Add support for experimental cover block spacing.
             add_theme_support('custom-spacing');
-            
-            // Make theme translatable.
-            load_theme_textdomain('masonic-esports');
 
             // Add support for Block Styles.
             add_theme_support('wp-block-styles');
@@ -122,6 +124,8 @@
 
         /**
          * Enqueue theme styles.
+         * 
+         * @since 1.0.0
          */
         function masonic_enqueue_styles() {
             wp_enqueue_style('masonic-style', get_stylesheet_uri(), array(), wp_get_theme()->get('Version'));
@@ -135,6 +139,8 @@
 
         /**
          * Enqueue theme scripts.
+         * 
+         * @since 1.0.0
          */
         function masonic_enqueue_scripts() {
             wp_enqueue_script('header-scroll', get_stylesheet_directory_uri() . '/assets/js/header-scroll.js', array(), wp_get_theme()->get('Version'));
@@ -165,6 +171,21 @@
     // Block patterns.
     require 'inc/masonic-patterns.php';
 
+    if(!function_exists('disable_embeds_filter_oembed_response_data_')) :
+
+        /**
+         * Disable oEmbeds author name & author url ~ Stops Showing in embeds
+         * 
+         * @since 1.0.0
+         */
+        function disable_embeds_filter_oembed_response_data_($data) {
+            unset($data['author_url']);
+            unset($data['author_name']);
+            return $data;
+        }
+
+    endif;
+
     add_filter( 'oembed_response_data', 'disable_embeds_filter_oembed_response_data_' );
 
     // Add featured image support to custom post types.
@@ -176,6 +197,8 @@
 
         /**
          * Register custom post types.
+         * 
+         * @since 1.0.0
          */
         function cpt_init() {
 
@@ -188,10 +211,11 @@
                     'view_item'     => __('View Partner', 'masonic-esports'),
                     'add_new_item'  => __('Add New Partner', 'masonic-esports'),
                 ),
-                'public'              => true,
-                'publicly_queryable'  => true,
-                'menu_icon'           => 'dashicons-businessman',
-                'show_in_rest'        => true
+                'public'             => true,
+                'publicly_queryable' => true,
+                'menu_icon'          => 'dashicons-businessman',
+                'show_in_rest'       => true,
+                'hierarchical'       => true
             );
 
             register_post_type('partners', $args);
@@ -205,10 +229,9 @@
                     'view_item'     => __('View Player', 'masonic-esports'),
                     'add_new_item'  => __('Add New Player', 'masonic-esports'),
                 ),
-                'public'              => true,
-                'publicly_queryable'  => true,
-                'menu_icon'           => 'dashicons-groups',
-                'show_in_rest'        => true
+                'show_ui'      => true,
+                'menu_icon'    => 'dashicons-groups',
+                'show_in_rest' => true
             );
 
             register_post_type('players', $args);
@@ -224,9 +247,9 @@
                         'add_new_item'  => 'New team',
                         'new_item_name' => 'New team',
                     ),
-                    'show_ui'       => true,
-                    'show_tagcloud' => false,
-                    'hierarchical'  => true
+                    'show_tagcloud'     => false,
+                    'show_admin_column' => true,
+                    'show_in_rest'      => true
                 )
             );
 
@@ -239,10 +262,10 @@
                     'view_item'     => __('View Mangement', 'masonic-esports'),
                     'add_new_item'  => __('Add New Manager', 'masonic-esports'),
                 ),
-                'public'              => true,
-                'has_archive'         => true,
-                'menu_icon'           => 'dashicons-businessperson',
-                'publicly_queryable'  => false,
+                'public'             => true,
+                'publicly_queryable' => false,
+                'menu_icon'          => 'dashicons-businessperson',
+                'show_in_rest'       => true
             );
 
             register_post_type('management', $args);
@@ -256,6 +279,8 @@
 
         /**
          * Register menu areas.
+         * 
+         * @since 1.0.0
          */
         function register_menus() {
             register_nav_menus(
@@ -277,6 +302,8 @@
 
         /**
          * Register widget areas.
+         * 
+         * @since 1.0.0
          */
         function register_widget_area() {
             register_sidebar(
@@ -293,3 +320,23 @@
     endif;
 
     add_action( 'widgets_init', 'register_widget_area' );
+
+    if(!function_exists('get_social_icons')) :
+
+    /**
+     * Gets the social icons by name => url.
+     * 
+     * @since 1.1.5
+     */
+    function get_social_icons($socials) {
+        $html = '';
+            foreach($socials as $social => $url) {
+                if(empty($url)) continue;
+
+                $html .= '<a class="player__social player__social--' . $social . '" href="' . $url . '" target="_blank"><i class="fab fa-' . $social . '"></i></a>';
+            }
+
+        return $html;
+    }
+
+    endif;
