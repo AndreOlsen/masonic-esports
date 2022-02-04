@@ -1,37 +1,135 @@
 @mixin margin-site-spacing {
-    margin: 0 2vw;
+	margin: 0 2vw;
 }
 
-@mixin reset-anchor($color:#000) {
-    text-decoration: none;
-    color: $color;
+@mixin reset-anchor($color: #000) {
+	text-decoration: none;
+	color: $color;
 }
 
 @mixin font-d-din($file) {
 	font-family: d-din-pro;
-	src: url('assets/fonts/#{$file}');
+	src: url("assets/fonts/#{$file}");
 }
 
 @mixin breakpoint($point) {
-    @if $point == desktop {
-        @media (min-width: 64em) { 
-            @content; 
-        }
-    } @else if $point == laptop {
-        @media (max-width: 64em) {
-            @content; 
-        }
-    } @else if $point == tablet {
-        @media (max-width: 50em) { 
-            @content;
-        }
-    } @else if $point == phablet {
-        @media (max-width: 37.5em)  { 
-            @content; 
-        }
-    } @else if $point == mobileonly {
-        @media (min-width: 37.5em)  { 
-            @content; 
-        }
-    }
+	@if $point == xldesktop {
+		@media (min-width: 139.3125em) {
+			@content;
+		}
+	} @else if $point == desktop {
+		@media (min-width: 64em) {
+			@content;
+		}
+	} @else if $point == laptop {
+		@media (max-width: 64em) {
+			@content;
+		}
+	} @else if $point == tablet {
+		@media (max-width: 50em) {
+			@content;
+		}
+	} @else if $point == phablet {
+		@media (max-width: 37.5em) {
+			@content;
+		}
+	} @else if $point == mobileonly {
+		@media (min-width: 37.5em) {
+			@content;
+		}
+	}
+}
+
+@mixin social-colors {
+	&--facebook:hover,
+	&--facebook:focus {
+		color: #3b5998 !important;
+	}
+
+	&--instagram {
+		background: radial-gradient(
+				circle farthest-corner at 35% 90%,
+				#fec564,
+				transparent 50%
+			),
+			radial-gradient(
+				circle farthest-corner at 0 140%,
+				#fec564,
+				transparent 50%
+			),
+			radial-gradient(
+				ellipse farthest-corner at 0 -25%,
+				#5258cf,
+				transparent 50%
+			),
+			radial-gradient(
+				ellipse farthest-corner at 20% -50%,
+				#5258cf,
+				transparent 50%
+			),
+			radial-gradient(
+				ellipse farthest-corner at 100% 0,
+				#893dc2,
+				transparent 50%
+			),
+			radial-gradient(
+				ellipse farthest-corner at 60% -20%,
+				#893dc2,
+				transparent 50%
+			),
+			radial-gradient(
+				ellipse farthest-corner at 100% 100%,
+				#d9317a,
+				transparent
+			),
+			linear-gradient(
+				#6559ca,
+				#bc318f 30%,
+				#e33f5f 50%,
+				#f77638 70%,
+				#fec66d 100%
+			) !important;
+
+		background-clip: text !important;
+
+		&:hover,
+		&:focus {
+			color: rgba(0, 0, 0, 0) !important;
+		}
+	}
+
+	&--steam {
+		background: linear-gradient(0deg, #137eb0, #121d2f) !important;
+		background-clip: text !important;
+
+		&:hover,
+		&:focus {
+			color: rgba(255, 255, 255, 0) !important;
+		}
+	}
+
+	&--twitter:hover,
+	&--twitter:focus {
+		color: #1da1f2 !important;
+	}
+
+	&--twitch:hover,
+	&--twitch:focus {
+		color: #6441a5 !important;
+	}
+
+	&--linkedin:hover,
+	&--linkedin:focus {
+		color: #2867b2 !important;
+	}
+
+	&--youtube:hover,
+	&--youtube:focus {
+		color: #ff0000 !important;
+	}
+
+	&--tiktok:hover,
+	&--tiktok:active {
+		color: #010101 !important;
+	}
 }

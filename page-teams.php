@@ -30,6 +30,8 @@ if(have_posts()) {
                 echo '<h2>' . $category->name . '</h2>';  
                 echo '</section>';
 
+                $display_last = array('analyst', 'coach', 'manager');
+
                 $players = get_posts(
                     array(
                         'post_type'   => 'players',
@@ -40,7 +42,23 @@ if(have_posts()) {
                                 'taxonomy' => 'teams',
                                 'terms'    => $category->term_id,
                             ],
-                        ],
+                        ], 
+                        'meta_query'  => array(
+                            'relation' => 'OR',
+                            'upper'    => array(
+                                'key'     => 'player_role',
+                                'value'   => $display_last,
+                                'compare' => 'IN'
+                            ),
+                            'lower'    => array(
+                                'key'     => 'player_role',
+                                'value'   => $display_last,
+                                'compare' => 'NOT IN'
+                            ), 
+                        ),
+                        'orderby'   => array(
+                            'upper' => 'ASC'
+                        )
                     )
                 );
                 
@@ -49,7 +67,7 @@ if(have_posts()) {
 
                     foreach($players as $player_id) :
                         $image_id = get_field('player_image', $player_id);
-    ?>
+?>
 
 
                         <article class="player">
@@ -66,8 +84,9 @@ if(have_posts()) {
                         </article>
 
 
-    <?php           endforeach; // End players.
-
+<?php           
+                    endforeach; // End players.
+ 
                     echo '</section>';
                 endif;
 
