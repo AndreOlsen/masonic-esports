@@ -1,9 +1,10 @@
 #burger-menu {
-    color: $ghost-white;
-    align-self: center;
-    font-size: 2em;
-    cursor: pointer;
-    @include breakpoint(desktop) {
-        display: none;
-    }
+	color: $ghost-white;
+	align-self: center;
+	justify-self: start;
+	font-size: 2em;
+	cursor: pointer;
+	@include breakpoint(desktop) {
+		display: none;
+	}
 }

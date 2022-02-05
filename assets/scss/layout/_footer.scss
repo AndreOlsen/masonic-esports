@@ -1,50 +1,50 @@
 .site-footer {
-    width: 100%;
-    color: $ghost-white;
-    background-color: $masonic-blue;
+	width: 100%;
+	color: $ghost-white;
+	background-color: $masonic-blue;
 
-    .footer-menus {
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        display: grid;
-        gap: 1rem;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        margin: 50px auto;
-        align-items: center;
-        justify-items: center;
-        @include breakpoint(phablet) {
-            justify-items: start;
-            padding: 20px;
-        }
+	.footer-menus {
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		margin: 50px auto;
+		align-items: center;
+		justify-items: center;
+		@include breakpoint(tablet) {
+			justify-items: start;
+			padding: 20px;
+		}
 
-        .custom-logo-container {
-            @include breakpoint(phablet) {
-                justify-self: start;
-            }
-        }
+		.custom-logo-container {
+			@include breakpoint(tablet) {
+				justify-self: start;
+			}
+		}
 
-        .menu {
-            .menu-item {
-                padding: 6px;
+		.menu {
+			.menu-item {
+				padding: 6px;
 
-                a {
-                    @include reset-anchor($ghost-white);
-                    filter: brightness(50%);
-                    transition: .2s ease-in-out;
+				a {
+					@include reset-anchor($ghost-white);
+					filter: brightness(50%);
+					transition: 0.2s ease-in-out;
 
-                    &:hover {
-                        filter: brightness(100%)
-                    }
-                }
-            }
-        }
-    }
+					&:hover {
+						filter: brightness(100%);
+					}
+				}
+			}
+		}
+	}
 
-    .copyrights {
-        margin: 0 auto;
-        padding: 20px;
-        text-align: center;
-        border-top: 2px solid $masonic-purple;
-    }
+	.copyrights {
+		margin: 0 auto;
+		padding: 20px;
+		text-align: center;
+		border-top: 2px solid $masonic-purple;
+	}
 }

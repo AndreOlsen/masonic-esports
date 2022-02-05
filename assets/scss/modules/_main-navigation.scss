@@ -1,84 +1,90 @@
 .main-menu {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 
-    &__left {
-        justify-self: start;
-        @include breakpoint(laptop) {
-            display: none;
-        }
-    }
+	&__left {
+		justify-self: start;
+		@include breakpoint(laptop) {
+			display: none;
+		}
+	}
 
-    &__right {
-        justify-self: end;
-        @include breakpoint(laptop) {
-            display: none;
-        }
-    }
+	&__right {
+		justify-self: end;
+		@include breakpoint(laptop) {
+			display: none;
+		}
+	}
 
-    &__mobile {
-        position: absolute;
-        transition: all .2s ease;
-        margin: -20px;
-        @include breakpoint(desktop) {
-            display: none;
-        }
+	.menu {
+		display: flex;
+		align-items: center;
 
-        &--open {
-            height: 100vh;
-            width: 100%;
-            background-color: rgba(0, 0, 0, .5);
+		.menu-item {
+			padding: 20px;
 
-            .menu {
-                margin-left: -2vw !important;
-                overflow: scroll;
-            }
-        }
-    }
+			a {
+				@include reset-anchor($ghost-white);
+				display: block;
+				font-weight: bold;
 
-    .menu {
-        display: flex;
-        align-items: center;
-        @include breakpoint(laptop) {
-            flex-direction:column;
-            align-items: flex-start;
-            margin-left: -100vw;
-            width: 60vw;
-            height: 100vh;
-            background-color: $ghost-white;
-            transition: all .2s ease;
-        }
+				&::after {
+					display: block;
+					content: "";
+					border-bottom: 2px solid $masonic-pink;
+					border-radius: 50px;
+					margin-top: 1px;
+					width: 0;
+					transition: 0.2s ease-in-out;
+				}
 
-        .menu-item {
-            padding: 20px;
+				&:hover:after {
+					width: 100%;
+				}
+			}
 
-            a {
-                @include reset-anchor($ghost-white);
-                display: block;
-                font-weight: bold;
-                @include breakpoint(laptop) {
-                    color: #000;
-                }
-                
-                &::after {
-                    display: block;
-                    content: "";
-                    border-bottom: 2px solid $masonic-pink;
-                    border-radius: 50px;
-                    margin-top: 1px;
-                    width: 0;
-                    transition: .2s ease-in-out;
-                }
+			&.current_page_item a::after,
+			&.current_page_parent a::after {
+				width: 100%;
+			}
+		}
+	}
 
-                &:hover:after {
-                    width: 100%;
-                }
-            }
+	&__mobile {
+		position: absolute;
+		transition: all 0.2s ease;
+		margin: -20px;
+		@include breakpoint(desktop) {
+			display: none;
+		}
 
-            &.current_page_item a::after,
-            &.current_page_parent a::after {
-                width: 100%;
-            }
-        }
-    }
+		.menu {
+			overflow: scroll;
+			flex-direction: column;
+			align-items: center;
+			margin-left: -100vw;
+			width: 65vw;
+			height: 100vh;
+			background-color: $ghost-white;
+			transition: all 0.2s ease;
+			padding-top: 30px;
+			box-sizing: border-box;
+
+			.menu-item {
+				a {
+					color: #000;
+				}
+			}
+		}
+
+		&--open {
+			height: 100vh;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+
+			.menu {
+				margin-left: -2vw;
+			}
+		}
+	}
 }
