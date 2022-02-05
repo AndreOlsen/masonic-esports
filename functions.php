@@ -340,3 +340,34 @@
     }
 
     endif;
+
+    function add_latest_posts($atts) {
+        $numberposts = shortcode_atts(array(
+            'numberposts' => 4,
+        ), $atts);
+
+        $latest_posts = new WP_Query(array(
+            'post_type'   => 'post',
+            'post_status' => 'publish',
+            'orderby'     => 'post_date',
+            'order'       => 'DESC',
+            'posts_per_page' => $numberposts['numberposts']
+        ));
+
+        $html = '';
+        if($latest_posts->have_posts()) :
+            $html .= '<section class="latest-news">';
+            while($latest_posts->have_posts()) :
+                $latest_posts->the_post();
+                ob_start();
+                get_template_part('template-parts/post/content');
+                $html .= ob_get_contents();
+                ob_end_clean();
+            endwhile;
+            $html .= '</section>';
+        endif;
+
+        return $html;
+    }
+
+    add_shortcode('latest_posts', 'add_latest_posts');
