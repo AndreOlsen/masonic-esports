@@ -18,12 +18,6 @@
 		}
 
 		.team__players {
-			/* display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-			gap: 2em;
-			@include breakpoint(xldesktop) {
-				grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-			} */
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
@@ -43,11 +37,6 @@
 					font-weight: bold;
 					font-size: 3em;
 					padding: 20px;
-				}
-
-				img {
-					max-width: 100%;
-					height: auto;
 				}
 
 				&__image {
