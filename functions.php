@@ -145,6 +145,8 @@
         function masonic_enqueue_scripts() {
             wp_enqueue_script('header-scroll', get_stylesheet_directory_uri() . '/assets/js/header-scroll.js', array(), wp_get_theme()->get('Version'));
             wp_enqueue_script('mobile-menu', get_stylesheet_directory_uri() . '/assets/js/mobile-menu.js', array(), wp_get_theme()->get('Version'));
+            wp_enqueue_script('ajax-script', get_template_directory_uri() . '/assets/js/ajax-script.js', array('jquery'));
+            wp_localize_script('ajax-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
         }
 
     endif;
@@ -341,33 +343,84 @@
 
     endif;
 
-    function add_latest_posts($atts) {
-        $numberposts = shortcode_atts(array(
-            'numberposts' => 4,
-        ), $atts);
+    if(!function_exists('add_latest_posts')) :
 
-        $latest_posts = new WP_Query(array(
-            'post_type'   => 'post',
-            'post_status' => 'publish',
-            'orderby'     => 'post_date',
-            'order'       => 'DESC',
-            'posts_per_page' => $numberposts['numberposts']
-        ));
+        /**
+         * Register shortcode which returns latest posts. 
+         * Defaults to showing 4 posts.
+         *
+         * @param array $atts
+         * @return string
+         */
+        function add_latest_posts($atts) {
+            $numberposts = shortcode_atts(array(
+                'numberposts' => 4,
+            ), $atts);
+
+            $latest_posts = new WP_Query(array(
+                'post_type'      => 'post',
+                'post_status'    => 'publish',
+                'orderby'        => 'post_date',
+                'order'          => 'DESC',
+                'posts_per_page' => $numberposts['numberposts']
+            ));
+
+            $html = '';
+            if($latest_posts->have_posts()) :
+                $html .= '<section class="posts-grid">';
+                while($latest_posts->have_posts()) :
+                    $latest_posts->the_post();
+                    ob_start();
+                    get_template_part('template-parts/post/content');
+                    $html .= ob_get_contents();
+                    ob_end_clean();
+                endwhile;
+                $html .= '</section>';
+            endif;
+
+            return $html;
+        }
+
+    endif;
+
+    add_shortcode('latest_posts', 'add_latest_posts');
+
+    function get_post_by_category() {
+        $args = array(
+            'post_type'       => 'post',
+            'posts_per_page'  => -1,
+            'orderby'         => 'post_date',
+            'order'           => 'DESC',
+            'post__not_in'    => array(intval($_POST['lastest_post_id']))
+        );
+
+        if(intval($_POST['term_id']) !== 0) {
+            $args['cat'] = intval($_POST['term_id']);
+        }
+
+        $sorted_posts = new WP_Query($args);
 
         $html = '';
-        if($latest_posts->have_posts()) :
-            $html .= '<section class="latest-news">';
-            while($latest_posts->have_posts()) :
-                $latest_posts->the_post();
+        if($sorted_posts->have_posts()) :
+            while($sorted_posts->have_posts()) :
+                $sorted_posts->the_post();
                 ob_start();
                 get_template_part('template-parts/post/content');
                 $html .= ob_get_contents();
                 ob_end_clean();
             endwhile;
-            $html .= '</section>';
         endif;
+        wp_reset_postdata();
 
-        return $html;
+        
+        if(!empty($html)) {
+            wp_send_json_success(array(
+                'html' => $html
+            ));
+        } else {
+            wp_send_json_error();
+        }
     }
 
-    add_shortcode('latest_posts', 'add_latest_posts');
+    add_action('wp_ajax_nopriv_get_post_by_category', 'get_post_by_category');
+    add_action('wp_ajax_get_post_by_category', 'get_post_by_category');
