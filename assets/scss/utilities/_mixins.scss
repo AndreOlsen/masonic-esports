@@ -2,7 +2,7 @@
 	margin: 0 2vw;
 }
 
-@mixin reset-anchor($color: #000) {
+@mixin reset-anchor($color: $black) {
 	text-decoration: none;
 	color: $color;
 }
