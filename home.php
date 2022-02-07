@@ -13,7 +13,10 @@ $categories = get_categories();
     <?php if(is_home()) : ?>
         <section class="posts-container">
             <section class="posts-hero">
-                <?php get_template_part('template-parts/post/content', null, array('hero' => 'post--hero')); ?>
+                <div class="posts-hero__inner">
+                    <h2><?php _e('Lastest News', 'masonic_esports'); ?></h2>
+                    <?php get_template_part('template-parts/post/content', null, array('hero' => 'post--hero')); ?>
+                </div>
             </section>
 
             <ul class="posts-categories">
