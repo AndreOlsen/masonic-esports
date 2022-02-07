@@ -386,72 +386,86 @@
     add_shortcode('latest_posts', 'add_latest_posts');
 
     if(!function_exists('get_post_by_category')) :
-    /**
-     * Handle ajax call for sorting posts by categories.
-     *
-     * @since 1.1.6
-     */
-    function get_post_by_category() {
-        $args = array(
-            'post_type'       => 'post',
-            'posts_per_page'  => -1,
-            'orderby'         => 'post_date',
-            'order'           => 'DESC',
-            'post__not_in'    => array(intval($_POST['lastest_post_id']))
-        );
 
-        if(intval($_POST['term_id']) !== 0) {
-            $args['cat'] = intval($_POST['term_id']);
-        }
+        /**
+         * Handle ajax call for sorting posts by categories.
+         *
+         * @since 1.1.6
+         */
+        function get_post_by_category() {
+            $args = array(
+                'post_type'       => 'post',
+                'posts_per_page'  => -1,
+                'orderby'         => 'post_date',
+                'order'           => 'DESC',
+                'post__not_in'    => array(intval($_POST['lastest_post_id']))
+            );
 
-        $sorted_posts = new WP_Query($args);
+            if(intval($_POST['term_id']) !== 0) {
+                $args['cat'] = intval($_POST['term_id']);
+            }
 
-        $html = '';
-        if($sorted_posts->have_posts()) :
-            while($sorted_posts->have_posts()) :
-                $sorted_posts->the_post();
-                ob_start();
-                get_template_part('template-parts/post/content');
-                $html .= ob_get_contents();
-                ob_end_clean();
-            endwhile;
-        endif;
-        wp_reset_postdata();
+            $sorted_posts = new WP_Query($args);
 
-        
-        if(!empty($html)) {
-            wp_send_json_success(array(
-                'html' => $html
-            ));
-        } else {
-            wp_send_json_error();
-        }
-    }
+            $html = '';
+            if($sorted_posts->have_posts()) :
+                while($sorted_posts->have_posts()) :
+                    $sorted_posts->the_post();
+                    ob_start();
+                    get_template_part('template-parts/post/content');
+                    $html .= ob_get_contents();
+                    ob_end_clean();
+                endwhile;
+            endif;
+            wp_reset_postdata();
+
+            
+            if(!empty($html)) {
+                wp_send_json_success(array(
+                    'html' => $html
+                ));
+            } else {
+                wp_send_json_error();
+            }
+        }       
 
     endif;
 
     add_action('wp_ajax_nopriv_get_post_by_category', 'get_post_by_category');
     add_action('wp_ajax_get_post_by_category', 'get_post_by_category');
 
-    function theme_current_type_nav_class($css_class, $page) {
-        static $custom_post_types, $post_type;
+    if(!function_exists('theme_current_type_nav_class')) :
 
-        if(empty($custom_post_types))
-            $custom_post_types = get_post_types(array('_builtin' => false));
-    
-        if(empty($post_type))
-            $post_type = get_post_type();
+        /**
+         * Makes a custom post type able to be parent of their posts.
+         *
+         * @since 1.1.9
+         * 
+         * @param  array $css_class
+         * @param  object $page
+         * @return array
+         */
+        function theme_current_type_nav_class($css_class, $page) {
+            static $custom_post_types, $post_type;
+
+            if(empty($custom_post_types))
+                $custom_post_types = get_post_types(array('_builtin' => false));
         
-        if('page' == $page->object && in_array($post_type, $custom_post_types)) {
-            $css_class = array_filter($css_class, function($el) {
-                return $el !== "current_page_parent";
-            });
+            if(empty($post_type))
+                $post_type = get_post_type();
+            
+            if('page' == $page->object && in_array($post_type, $custom_post_types)) {
+                $css_class = array_filter($css_class, function($el) {
+                    return $el !== "current_page_parent";
+                });
 
-            if(!empty(stristr($page->url, $post_type)))
-                array_push($css_class, 'current_page_parent');
+                if(!empty(stristr($page->url, $post_type)))
+                    array_push($css_class, 'current_page_parent');
+            }
+        
+            return $css_class;
         }
-    
-        return $css_class;
-    }
+
+    endif;
 
     add_filter('nav_menu_css_class', 'theme_current_type_nav_class', 1, 2);
