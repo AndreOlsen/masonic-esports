@@ -1,36 +1,60 @@
 @font-face {
-    @include font-d-din("D-DIN-PRO-400-Regular.woff2");
+	@include font-d-din("D-DIN-PRO-400-Regular.woff2");
 }
 
 @font-face {
-    @include font-d-din("D-DIN-PRO-500-Medium.woff2");
-    font-weight: 500;
+	@include font-d-din("D-DIN-PRO-500-Medium.woff2");
+	font-weight: 500;
 }
 
 @font-face {
-    @include font-d-din("D-DIN-PRO-600-SemiBold.woff2");
-    font-weight: 600;
+	@include font-d-din("D-DIN-PRO-600-SemiBold.woff2");
+	font-weight: 600;
 }
 
 @font-face {
-    @include font-d-din("D-DIN-PRO-700-Bold.woff2");
-    font-weight: 700;
+	@include font-d-din("D-DIN-PRO-700-Bold.woff2");
+	font-weight: 700;
 }
 
 @font-face {
-    @include font-d-din("D-DIN-PRO-800-ExtraBold.woff2");
-    font-weight: 800;
+	@include font-d-din("D-DIN-PRO-800-ExtraBold.woff2");
+	font-weight: 800;
 }
 
 @font-face {
-    @include font-d-din("D-DIN-PRO-900-Heavy.woff2");
-    font-weight: 900;
+	@include font-d-din("D-DIN-PRO-900-Heavy.woff2");
+	font-weight: 900;
 }
 
 body {
-    font-family: d-din-pro;
+	font-family: d-din-pro;
 }
 
 h2#news {
-    margin: 0 0 20px 20px;
+	margin: 0 0 20px 20px;
+}
+
+.has-masonic-blue-color {
+	color: $masonic-blue;
+}
+
+.has-masonic-purple-color {
+	color: $masonic-purple;
+}
+
+.has-masonic-lighter-blue-color {
+	color: #2e3186;
+}
+
+.has-masonic-pink-color {
+	color: $masonic-pink;
+}
+
+.has-ghost-white-color {
+	color: $ghost-white;
+}
+
+.has-black-color {
+	color: $black;
 }

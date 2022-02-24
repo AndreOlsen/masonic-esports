@@ -1,16 +1,16 @@
-@import 'utilities/variables';
-@import 'utilities/mixins';
-@import 'base/typography';
+@import "utilities/variables";
+@import "utilities/mixins";
+@import "base/typography";
 
 body {
-    background: $masonic-blue;
-    font-family: d-din-pro;
+	background: $masonic-blue;
+	font-family: d-din-pro;
 }
 
 p {
-    color: $white;
+	color: $white;
 }
 
 .wp-block-post-title {
-    color: $white;
-} 
+	color: $white;
+}

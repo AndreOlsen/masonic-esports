@@ -35,6 +35,30 @@ h2#news {
   margin: 0 0 20px 20px;
 }
 
+.has-masonic-blue-color {
+  color: #0e1626;
+}
+
+.has-masonic-purple-color {
+  color: #5f2f85;
+}
+
+.has-masonic-lighter-blue-color {
+  color: #2e3186;
+}
+
+.has-masonic-pink-color {
+  color: #882884;
+}
+
+.has-ghost-white-color {
+  color: #f8f8ff;
+}
+
+.has-black-color {
+  color: #232323;
+}
+
 body {
   background: #0e1626;
   font-family: d-din-pro;
