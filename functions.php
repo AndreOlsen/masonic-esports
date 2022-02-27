@@ -172,6 +172,8 @@
 
     // Block patterns.
     require 'inc/masonic-patterns.php';
+    // WooCommerce exclusive settings.
+    require 'inc/woocommerce-settings.php';
 
     if(!function_exists('disable_embeds_filter_oembed_response_data_')) :
 

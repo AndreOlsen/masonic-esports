@@ -1,0 +1,19 @@
+div.woocommerce {
+	max-width: 1800px;
+	margin: 0 auto;
+
+	.product {
+		transition: transform 0.2s ease;
+		&:hover {
+			transform: scale(1.02);
+		}
+
+		.woocommerce-loop-product__title {
+			color: $ghost-white;
+		}
+
+		.price {
+			color: $masonic-purple !important;
+		}
+	}
+}
