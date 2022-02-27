@@ -58,3 +58,11 @@ h2#news {
 .has-black-color {
 	color: $black;
 }
+
+.has-pink-to-blue-gradient-background {
+	background: linear-gradient(
+		200deg,
+		#{$masonic_pink} 0%,
+		#{$masonic_lighter_blue} 100%
+	);
+}

@@ -59,6 +59,10 @@ h2#news {
   color: #232323;
 }
 
+.has-pink-to-blue-gradient-background {
+  background: linear-gradient(200deg, #882884 0%, #2e3186 100%);
+}
+
 body {
   background: #0e1626;
   font-family: d-din-pro;

@@ -176,6 +176,40 @@ function register_masonic_block_patterns() {
             'keywords'    => array('masonic', 'socials', 'social')
         )
     );
+
+    // Register Featured Products block pattern.
+    register_block_pattern( 
+        'masonic_esports/featured-products',
+        array(
+            'title'       => __('Featured Products', 'masonic_esports'),
+            'description' => _x('Featured products with a CTA', 'Block pattern description', 'masonic_esports'),
+            'content'     => '<!-- wp:columns {"verticalAlignment":"center","align":"full","className":"full-width"} -->
+            <div class="wp-block-columns alignfull are-vertically-aligned-center full-width"><!-- wp:column {"verticalAlignment":"center"} -->
+            <div class="wp-block-column is-vertically-aligned-center"><!-- wp:cover {"url":"' . $upload_dir['baseurl'] . '/2022/02/IMG_6864_faded-1-scaled-1.jpg","id":2403,"dimRatio":50,"minHeight":250,"minHeightUnit":"px","isDark":false,"className":"image-arrow"} -->
+            <div class="wp-block-cover is-light image-arrow" style="min-height:250px"><span aria-hidden="true" class="wp-block-cover__gradient-background has-background-dim"></span><img class="wp-block-cover__image-background wp-image-2403" alt="" src="' . $upload_dir['baseurl'] . '/2022/02/IMG_6864_faded-1-scaled-1.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","style":{"typography":{"fontSize":"53px"}},"textColor":"ghost-white"} -->
+            <h2 class="has-text-align-center has-ghost-white-color has-text-color" style="font-size:53px">LIKE OUR MERCH?</h2>
+            <!-- /wp:heading -->
+            
+            <!-- wp:spacer {"height":"20px"} -->
+            <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+            <!-- /wp:spacer -->
+            
+            <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+            <div class="wp-block-buttons"><!-- wp:button {"gradient":"pink-to-blue","style":{"border":{"radius":"0px"}},"className":"is-style-fill"} -->
+            <div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-pink-to-blue-gradient-background has-background" style="border-radius:0px">Visit our shop [icon name="arrow-right" prefix="fas"]</a></div>
+            <!-- /wp:button --></div>
+            <!-- /wp:buttons --></div></div>
+            <!-- /wp:cover --></div>
+            <!-- /wp:column -->
+            
+            <!-- wp:column {"verticalAlignment":"center"} -->
+            <div class="wp-block-column is-vertically-aligned-center"><!-- wp:woocommerce/handpicked-products {"editMode":false,"contentVisibility":{"title":false,"price":false,"rating":false,"button":false},"products":[2371,2386,2392]} /--></div>
+            <!-- /wp:column --></div>
+            <!-- /wp:columns -->',
+            'categories'  => array('masonic'),
+            'keywords'    => array('masonic', 'product', 'featured')
+        )
+    );
 }
 
 add_action('init', 'register_masonic_block_patterns');

@@ -1,17 +1,28 @@
 body {
-    background-color: $masonic-blue;
-    overflow-x: hidden;
+	background-color: $masonic-blue;
+	overflow-x: hidden;
 }
 
 .wp-block-group {
-    @include margin-site-spacing;
+	@include margin-site-spacing;
 }
 
 .wp-block-columns {
-    @include margin-site-spacing;
+	@include margin-site-spacing;
+}
+
+.wp-block-cover.image-arrow {
+	span,
+	img {
+		clip-path: polygon(90% 0, 100% 50%, 90% 100%, 0 100%, 0 0);
+	}
 }
 
 .reading-width {
-    max-width: $reading-width;
-    margin: 0 auto;
+	max-width: $reading-width;
+	margin: 0 auto;
+}
+
+.full-width {
+	margin: 0 2vw;
 }
