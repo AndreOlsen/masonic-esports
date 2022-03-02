@@ -145,7 +145,8 @@
         function masonic_enqueue_scripts() {
             wp_enqueue_script('header-scroll', get_stylesheet_directory_uri() . '/assets/js/header-scroll.js', array(), wp_get_theme()->get('Version'));
             wp_enqueue_script('mobile-menu', get_stylesheet_directory_uri() . '/assets/js/mobile-menu.js', array(), wp_get_theme()->get('Version'));
-            wp_enqueue_script('ajax-script', get_template_directory_uri() . '/assets/js/ajax-script.js', array('jquery'));
+            wp_enqueue_script('login-form', get_stylesheet_directory_uri() . '/assets/js/login-form.js', array(), wp_get_theme()->get('Version'));
+            wp_enqueue_script('ajax-script', get_template_directory_uri() . '/assets/js/ajax-script.js', array('jquery'), wp_get_theme('Version'));
             wp_localize_script('ajax-script', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
         }
 
