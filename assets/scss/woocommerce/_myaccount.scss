@@ -1,0 +1,95 @@
+div.woocommerce {
+	.MyAccount-wrapper {
+		max-width: 1800px;
+		margin: 0 auto;
+		margin-top: 150px;
+		display: flex;
+		justify-content: space-between;
+		background-color: $ghost-white;
+		border-radius: 5px;
+		padding: 20px;
+
+		@include breakpoint(laptop) {
+			flex-direction: column;
+		}
+
+		.woocommerce-MyAccount-navigation {
+			width: 10%;
+
+			@include breakpoint(laptop) {
+				width: 100%;
+				border-bottom: 1px solid $darker-blue;
+				margin-bottom: 50px;
+			}
+
+			ul {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				@include breakpoint(laptop) {
+					flex-direction: row;
+				}
+
+				li {
+					&:last-child {
+						a {
+							border: none;
+						}
+					}
+					&.is-active {
+						text-decoration: underline;
+					}
+
+					a {
+						display: block;
+						border-bottom: 1px solid $darker-blue;
+						padding: 20px 0;
+						color: $masonic-blue;
+						text-decoration: none;
+
+						@include breakpoint(laptop) {
+							border: none;
+						}
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+
+		.woocommerce-MyAccount-content {
+			width: 80%;
+
+			@include breakpoint(laptop) {
+				width: 100%;
+			}
+		}
+
+		.woocommerce-EditAccountForm {
+			input {
+				padding: 10px;
+			}
+
+			fieldset {
+				margin-top: 50px;
+
+				legend {
+					font-size: 1.5em;
+				}
+			}
+
+			button[name="save_account_details"] {
+				background-color: $masonic-purple;
+				color: $ghost-white;
+				filter: brightness(80%);
+
+				&:hover {
+					filter: brightness(100%);
+				}
+			}
+		}
+	}
+}
