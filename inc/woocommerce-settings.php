@@ -189,6 +189,3 @@ function custom_checkout_login_form() {
         'hidden'   => false,
     ) );
 }
-
-/* remove_action( 'woocommerce_checkout_order_review', 'woocommerce_order_review', 10 );
-add_action('woocommerce_before_order_notes', 'woocommerce_order_review', 30); */
