@@ -1,0 +1,35 @@
+div.woocommerce {
+	.woocommerce-cart-page-wrapper {
+		max-width: 1500px;
+		margin: 150px auto 0 auto;
+		padding: 20px;
+		background-color: $ghost-white;
+		border-radius: 5px;
+		box-sizing: border-box;
+
+		.woocommerce-cart-form__cart-item {
+			.input-text.qty {
+				padding: 5px;
+			}
+		}
+
+		.coupon {
+			display: flex;
+
+			#coupon_code {
+				width: auto;
+			}
+		}
+
+		.wc-proceed-to-checkout {
+			.checkout-button {
+				background-color: $masonic-purple;
+				color: $ghost-white;
+
+				&:hover {
+					filter: brightness(80%);
+				}
+			}
+		}
+	}
+}

@@ -86,7 +86,6 @@ function add_fields_to_register_form() {
   
     <?php
 }
-
 add_action( 'woocommerce_register_form_start', 'add_fields_to_register_form' );
 
 /**
@@ -106,7 +105,6 @@ function validate_custom_register_fields( $errors, $username, $email ) {
     }
     return $errors;
 }
-
 add_filter( 'woocommerce_registration_errors', 'validate_custom_register_fields', 10, 3 );
 
 /**
@@ -125,7 +123,6 @@ function save_custom_register_fields( $customer_id ) {
         update_user_meta( $customer_id, 'last_name', sanitize_text_field($_POST['billing_last_name']) );
     }
 }
-
 add_action( 'woocommerce_created_customer', 'save_custom_register_fields' );
 
 /**
@@ -139,3 +136,36 @@ function wc_save_account_details_required_fields( $required_fields ){
     return $required_fields;
 }
 add_filter('woocommerce_save_account_details_required_fields', 'wc_save_account_details_required_fields' );
+
+// Removes Order Notes Title
+add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
+
+/**
+ * Remove fields from checkout page.
+ *
+ * @param  array $fields
+ * @return void
+ */
+function remove_checkout_fields( $fields ) {
+	unset($fields['order']['order_comments']);
+	return $fields;
+}
+add_filter( 'woocommerce_checkout_fields' , 'remove_checkout_fields' );
+
+
+// --WIP--
+function add_checkout_wrapper_before() {
+	?>
+	<div class="woocommerce-checkout-page-wrapper">
+	<?php
+}
+
+add_action('woocommerce_before_checkout_form', 'add_checkout_wrapper_before', 10);
+
+function add_checkout_wrapper_after() {
+	?>
+	</div>
+	<?php
+}
+
+add_action('woocommerce_after_checkout_form', 'add_checkout_wrapper_after', 10);

@@ -3,7 +3,7 @@ Theme Name:  Masonic Esports
 Author:      André Olsen
 Author URI:  https://www.linkedin.com/in/andre-w-olsen/
 Description: Custom theme for Masonic esports org.
-Version:     1.2.4
+Version:     1.2.5
 Text Domain: masonic-esports
 */
 
@@ -35,6 +35,8 @@ Text Domain: masonic-esports
 @import "woocommerce/featured-products";
 @import "woocommerce/login-register";
 @import "woocommerce/myaccount";
+@import "woocommerce/cart";
+@import "woocommerce/checkout";
 
 @import "pages/404";
 @import "pages/single";
