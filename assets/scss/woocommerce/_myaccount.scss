@@ -58,6 +58,10 @@ div.woocommerce {
 					}
 				}
 			}
+
+			.woocommerce-MyAccount-navigation-link--wpf-delete-account a {
+				color: red;
+			}
 		}
 
 		.woocommerce-MyAccount-content {
@@ -66,28 +70,32 @@ div.woocommerce {
 			@include breakpoint(laptop) {
 				width: 100%;
 			}
-		}
 
-		.woocommerce-EditAccountForm {
-			input {
-				padding: 10px;
-			}
-
-			fieldset {
-				margin-top: 50px;
-
-				legend {
-					font-size: 1.5em;
+			form {
+				input {
+					padding: 10px;
 				}
-			}
 
-			button[name="save_account_details"] {
-				background-color: $masonic-purple;
-				color: $ghost-white;
-				filter: brightness(80%);
+				select {
+					padding: 10px;
+				}
 
-				&:hover {
-					filter: brightness(100%);
+				fieldset {
+					margin-top: 50px;
+
+					legend {
+						font-size: 1.5em;
+					}
+				}
+
+				button {
+					background-color: $masonic-purple;
+					color: $ghost-white;
+					filter: brightness(80%);
+
+					&:hover {
+						filter: brightness(100%);
+					}
 				}
 			}
 		}
