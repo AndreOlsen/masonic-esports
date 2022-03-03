@@ -159,7 +159,6 @@ function add_checkout_wrapper_before() {
 	<div class="woocommerce-checkout-page-wrapper">
 	<?php
 }
-
 add_action('woocommerce_before_checkout_form', 'add_checkout_wrapper_before', 10);
 
 function add_checkout_wrapper_after() {
@@ -167,5 +166,29 @@ function add_checkout_wrapper_after() {
 	</div>
 	<?php
 }
-
 add_action('woocommerce_after_checkout_form', 'add_checkout_wrapper_after', 10);
+
+// Remove coupon form field.
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form');
+// Display coupon form notice.
+add_action( 'woocommerce_after_checkout_billing_form', 'woocommerce_checkout_coupon_form' );
+
+// Enable the login form by default for unlogged users.
+function display_checkout_login_form() {
+	if( ! is_user_logged_in() ) {
+		remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_login_form', 10 );
+        add_action( 'woocommerce_before_checkout_form', 'custom_checkout_login_form');
+    }
+}
+add_action( 'woocommerce_before_checkout_form', 'display_checkout_login_form', 4 );
+
+function custom_checkout_login_form() {
+    wc_get_template( 'global/form-login.php', array(
+        'message'  => __( 'If you have shopped with us before, please enter your details below. If you are a new customer, please proceed to the Billing &amp; Shipping section.', 'woocommerce' ),
+        'redirect' => wc_get_page_permalink( 'checkout' ),
+        'hidden'   => false,
+    ) );
+}
+
+/* remove_action( 'woocommerce_checkout_order_review', 'woocommerce_order_review', 10 );
+add_action('woocommerce_before_order_notes', 'woocommerce_order_review', 30); */

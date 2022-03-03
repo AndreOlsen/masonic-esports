@@ -1,0 +1,42 @@
+div.woocommerce {
+	.woocommerce-checkout-page-wrapper {
+		max-width: 1200px;
+		margin: 150px auto 0 auto;
+		background-color: $ghost-white;
+		border-radius: 5px;
+		padding: 20px;
+		box-sizing: border-box;
+
+		h3 {
+			font-size: 1.5em;
+		}
+
+		input {
+			padding: 10px;
+			border-radius: 5px;
+		}
+
+		.woocommerce-form-coupon-toggle {
+			display: none;
+		}
+
+		#order_review_heading {
+			padding-bottom: 10px;
+		}
+
+		.place-order {
+			.woocommerce-terms-and-conditions-wrapper {
+				padding-bottom: 10px;
+			}
+
+			button {
+				background-color: $masonic-purple;
+				color: $ghost-white;
+
+				&:hover {
+					filter: brightness(80%);
+				}
+			}
+		}
+	}
+}
