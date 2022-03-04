@@ -189,3 +189,6 @@ function custom_checkout_login_form() {
         'hidden'   => false,
     ) );
 }
+
+// Remove empty cart message.
+remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message', 10 );
