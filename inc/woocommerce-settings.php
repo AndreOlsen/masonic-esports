@@ -28,6 +28,8 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 // Remove product meta.
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+// Remove the product description title.
+add_filter( 'woocommerce_product_description_heading', '__return_null' );
 
 /**
  * Remove product data tabs.
