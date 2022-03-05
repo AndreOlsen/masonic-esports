@@ -18,6 +18,20 @@ body {
 	}
 }
 
+.wc-block-grid__product {
+	.wc-block-grid__product-link {
+		text-decoration: none;
+
+		.wc-block-grid__product-title {
+			color: $ghost-white;
+		}
+	}
+
+	.wc-block-grid__product-price {
+		color: $masonic-purple;
+	}
+}
+
 .reading-width {
 	max-width: $reading-width;
 	margin: 0 auto;
