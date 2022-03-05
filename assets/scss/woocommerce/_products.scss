@@ -28,61 +28,68 @@ div.woocommerce {
 		.single-product-wrapper {
 			display: flex;
 			justify-content: space-between;
-		}
+			flex-wrap: wrap;
 
-		.woocommerce-product-title {
-			font-size: 2em;
-		}
+			.summary {
+				padding: 10px;
 
-		.price {
-			padding: 20px 0;
-		}
+				.woocommerce-product-title {
+					font-size: 2em;
+				}
 
-		.variations_form {
-			.variations {
-				margin: 1em 0;
+				.price {
+					padding: 20px 0;
+				}
 
-				select {
+				.variations_form {
+					.variations {
+						margin: 1em 0;
+
+						select {
+							padding: 10px;
+
+							option {
+								padding: 10px;
+							}
+						}
+					}
+
+					.stock {
+						font-size: 1.5em;
+						padding-bottom: 10px;
+					}
+				}
+
+				.qty {
 					padding: 10px;
+				}
 
-					option {
-						padding: 10px;
+				.single_add_to_cart_button {
+					padding: 0.75em;
+					width: 70%;
+					background-color: $masonic-purple;
+
+					&.disabled {
+						background-color: $masonic-purple;
+
+						&:hover {
+							background-color: $masonic-purple;
+							opacity: 0.4;
+						}
+					}
+
+					&:hover {
+						background-color: $masonic-purple;
+						opacity: 0.8;
 					}
 				}
 			}
-
-			.stock {
-				font-size: 1.5em;
-				padding-bottom: 10px;
-			}
 		}
 
-		.qty {
-			padding: 10px;
-		}
-
-		.single_add_to_cart_button {
-			padding: 0.75em;
-			width: 70%;
-			background-color: $masonic-purple;
-
-			&.disabled {
-				background-color: $masonic-purple;
-
-				&:hover {
-					background-color: $masonic-purple;
-					opacity: 0.4;
-				}
+		.woocommerce-tabs {
+			.tabs {
+				color: $black;
 			}
-
-			&:hover {
-				background-color: $masonic-purple;
-				opacity: 0.8;
-			}
-		}
-
-		.tabs {
-			color: $black;
 		}
 
 		.related.products {
