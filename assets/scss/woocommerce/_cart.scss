@@ -26,6 +26,13 @@ div.woocommerce {
 				background-color: $masonic-purple;
 				color: $ghost-white;
 
+				&:after {
+					font-family: "Font Awesome 5 Free";
+					font-weight: 600;
+					content: "\f061";
+					margin-left: 5px;
+				}
+
 				&:hover {
 					filter: brightness(80%);
 				}

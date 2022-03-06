@@ -14,6 +14,7 @@ div.woocommerce {
 		input {
 			padding: 10px;
 			border-radius: 5px;
+			border-style: solid;
 		}
 
 		.woocommerce-form-coupon-toggle {
@@ -34,9 +35,16 @@ div.woocommerce {
 				color: $ghost-white;
 
 				&:hover {
+					background-color: $masonic-purple;
 					filter: brightness(80%);
 				}
 			}
 		}
 	}
+}
+
+p.woocommerce-invalid-required-field span.error {
+	color: #e2401c;
+	display: block !important;
+	font-weight: bold;
 }

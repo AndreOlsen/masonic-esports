@@ -154,22 +154,6 @@ function remove_checkout_fields( $fields ) {
 }
 add_filter( 'woocommerce_checkout_fields' , 'remove_checkout_fields' );
 
-
-// --WIP--
-function add_checkout_wrapper_before() {
-	?>
-	<div class="woocommerce-checkout-page-wrapper">
-	<?php
-}
-add_action('woocommerce_before_checkout_form', 'add_checkout_wrapper_before', 10);
-
-function add_checkout_wrapper_after() {
-	?>
-	</div>
-	<?php
-}
-add_action('woocommerce_after_checkout_form', 'add_checkout_wrapper_after', 10);
-
 // Remove coupon form field.
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form');
 // Display coupon form notice.
@@ -191,6 +175,26 @@ function custom_checkout_login_form() {
         'hidden'   => false,
     ) );
 }
-
+function add_breadcrumb() {
+	woocommerce_breadcrumb();
+}
+add_action('woocommerce_before_cart', 'add_breadcrumb', 1);
+add_action('woocommerce_before_checkout_form','add_breadcrumb');
 // Remove empty cart message.
 remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message', 10 );
+
+ 
+function compact_checkout_errors( $fields, $errors ){
+	// if any validation errors
+	if( !empty( $errors->get_error_codes() ) ) {
+ 
+		// remove all of them
+		foreach( $errors->get_error_codes() as $code ) {
+			$errors->remove( $code );
+		}
+ 
+		// add our custom one
+		$errors->add( 'validation', 'Please fill all the required fields.' );
+	}
+}
+add_action( 'woocommerce_after_checkout_validation', 'compact_checkout_errors', 9999, 2);

@@ -1,4 +1,39 @@
-div.woocommerce {
-	.woocommerce-message {
+div.woocommerce-message {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	align-items: center;
+	background: #272d43;
+	color: ghostwhite;
+	border: none;
+	border-left: 2px solid #882884;
+
+	&:before {
+		top: initial;
+	}
+
+	.button {
+		margin-left: auto;
+		border-left: 1px solid ghostwhite;
+		background: none;
+		color: ghostwhite;
+		border-radius: unset;
+
+		&:after {
+			font-family: "Font Awesome 5 Free";
+			font-weight: 600;
+			content: "\f061";
+			margin-left: 5px;
+		}
+	}
+}
+
+.woocommerce-error {
+	background-color: #b81c23;
+	border: none;
+	color: $ghost-white;
+
+	&:before {
+		color: $ghost-white;
 	}
 }

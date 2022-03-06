@@ -17,10 +17,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-do_action( 'woocommerce_before_lost_password_form' );
+
 ?>
 
 <form method="post" class="woocommerce-ResetPassword lost_reset_password">
+
+	<?php do_action( 'woocommerce_before_lost_password_form' ); ?>
 
 	<h3><?php esc_html_e('Lost your password?', 'woocommerce'); ?></h3>
 
