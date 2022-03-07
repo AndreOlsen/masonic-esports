@@ -40,6 +40,11 @@
 						<?php dynamic_sidebar('socials_widget_area'); ?>
 					</div>
 				<?php endif; ?>
+
+				<div class="payment-options">
+					<p><?php _e('Payment options', 'masonic_esports'); ?></p>
+					<img class="options" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/payment_options.png'; ?>" alt="<?php _e('Payment options', 'masonic_esports'); ?>">
+				</div>
 			</nav>
 				
 			<section class="copyrights">
