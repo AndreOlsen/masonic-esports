@@ -183,7 +183,13 @@ add_action('woocommerce_before_checkout_form','add_breadcrumb');
 // Remove empty cart message.
 remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message', 10 );
 
- 
+/**
+ * Puts all errors into one message.
+ *
+ * @param string $fields
+ * @param object $errors
+ * @return void
+ */
 function compact_checkout_errors( $fields, $errors ){
 	// if any validation errors
 	if( !empty( $errors->get_error_codes() ) ) {
