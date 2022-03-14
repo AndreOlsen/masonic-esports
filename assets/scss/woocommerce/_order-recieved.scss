@@ -1,0 +1,14 @@
+div.woocommerce {
+	.woocommerce-order {
+		background-color: ghostwhite;
+		margin: 150px auto 0 auto;
+		width: 70%;
+		border-radius: 5px;
+		padding: 20px;
+
+		.woocommerce-thankyou-order-received {
+			font-size: 2em;
+			padding-bottom: 20px;
+		}
+	}
+}
